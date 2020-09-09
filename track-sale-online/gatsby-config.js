@@ -1,15 +1,22 @@
+const path = require('path');
+
 module.exports = {
   plugins: [
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `images`,
-        path: path.join(__dirname, `src`, `images`),
+        name: `Assets`,
+        path: path.join(__dirname, `src`, `assets`),
       },
     },
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-sass`,
+    {
+      resolve: `gatsby-plugin-emotion`,
+      options: {
+        // Accepts all options defined by `babel-plugin-emotion` plugin.
+      },
+    },
   ],
 };

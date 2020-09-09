@@ -1,22 +1,23 @@
 import React from 'react';
-import './scss/index.scss';
+import { PageProps } from 'gatsby';
+import { Global } from '@emotion/core';
 
+import { resetStyles } from '@/styled/global-styles';
 import Header from '@/components/Layout/Header';
 import Footer from '@/components/Layout/Footer';
 import SEO from '@/components/Layout/SEO';
 import Hero from '@/components/Layout/Hero';
 
-const Layout: React.FC = ({ children }) => {
+const Layout: React.FC<PageProps> = ({ children }) => {
   return (
-    <div>
-      <>
-        <SEO />
-        <Header />
-        <Hero />
-        <main>{children}</main>
-        <Footer />
-      </>
-    </div>
+    <>
+      <Global styles={resetStyles} />
+      <SEO />
+      <Header />
+      <Hero />
+      <main>{children}</main>
+      <Footer />
+    </>
   );
 };
 
