@@ -2767,7 +2767,7 @@ export type FooterNavigationQuery = (
       { __typename?: 'StrapiTrackSaleOnlineFooter' }
       & { navigation?: Maybe<Array<Maybe<(
         { __typename?: 'StrapiTrackSaleOnlineFooterNavigation' }
-        & Pick<StrapiTrackSaleOnlineFooterNavigation, 'text' | 'href'>
+        & Pick<StrapiTrackSaleOnlineFooterNavigation, 'id' | 'text' | 'href'>
       )>>> }
     )> }
   )> }

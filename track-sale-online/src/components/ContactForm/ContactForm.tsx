@@ -42,7 +42,7 @@ const Form = styled.form`
   }
 
   > * {
-    margin-bottom: 20px;
+    margin-bottom: 19px;
   }
 `;
 
@@ -61,7 +61,7 @@ const ContactInfo = styled.div`
   align-items: center;
   justify-content: space-evenly;
   /* Size of the submit button */
-  padding-bottom: calc(1rem + 40px);
+  padding-bottom: calc(1rem + 50px);
 `;
 
 const ContactForm = () => {

@@ -1,5 +1,7 @@
 import styled from '@/styled';
 import React from 'react';
+import Legal from './Legal';
+import MainFooter from './MainFooter';
 
 const FooterContainer = styled.footer`
   background-color: ${(props) => props.theme.colors.secondary};
@@ -7,7 +9,12 @@ const FooterContainer = styled.footer`
 `;
 
 const Footer = () => {
-  return <FooterContainer></FooterContainer>;
+  return (
+    <FooterContainer>
+      <MainFooter />
+      <Legal />
+    </FooterContainer>
+  );
 };
 
 export default Footer;

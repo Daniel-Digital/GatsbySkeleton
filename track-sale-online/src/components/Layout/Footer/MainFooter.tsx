@@ -1,11 +1,23 @@
 import React from 'react';
+import { Link } from 'gatsby';
 import { graphql, useStaticQuery } from 'gatsby';
 
 const MainFooter = () => {
   const data = useStaticQuery<
     import('generated/graphql').FooterNavigationQuery
   >(query);
-  return <div></div>;
+
+  const links = data.strapiTrackSaleOnline.footer.navigation;
+
+  return (
+    <div>
+      {links.map((link) => (
+        <Link to={link.href} key={link.id}>
+          {link.text}
+        </Link>
+      ))}
+    </div>
+  );
 };
 
 const query = graphql`
@@ -13,6 +25,7 @@ const query = graphql`
     strapiTrackSaleOnline {
       footer {
         navigation {
+          id
           text
           href
         }
