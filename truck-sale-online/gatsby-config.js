@@ -6,7 +6,7 @@ module.exports = {
       resolve: `gatsby-source-strapi`,
       options: {
         apiURL:
-          process.env.NODE_END === 'production'
+          process.env.NODE_ENV === 'production'
             ? `https://strapi-backend-demo.herokuapp.com`
             : `http://localhost:1337`,
         queryLimit: 1000, // Default to 100

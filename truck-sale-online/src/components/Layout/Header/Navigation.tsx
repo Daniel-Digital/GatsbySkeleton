@@ -2,6 +2,7 @@ import React from 'react';
 import { graphql, useStaticQuery, Link } from 'gatsby';
 import styled from '@/styled';
 import { css } from '@emotion/core';
+import { mediaQueries } from '@/styled/media';
 
 type NavItemProps = {
   href: string;
@@ -39,6 +40,9 @@ const Navigation = () => {
         display: flex;
         > * {
           margin-right: 20px;
+        }
+        ${mediaQueries.isNotTablet} {
+          display: none;
         }
       `}
     >

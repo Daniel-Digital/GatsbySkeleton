@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import { css } from '@emotion/core';
-import useMedia from 'use-media';
 import { Squash as Hamburger } from 'hamburger-react';
 
 import styled from '@/styled';
 import Logo from './Logo';
-import { mediaQueries, DESKTOP_VIEW } from '@/styled/media';
+import { mediaQueries } from '@/styled/media';
 import MobileMenu from './MobileMenu';
 import Navigation from './Navigation';
 
@@ -20,8 +19,13 @@ const HeaderContainer = styled.div`
   }
 `;
 
+const HamburgerWrapper = styled.div`
+  ${mediaQueries.isTablet} {
+    display: none;
+  }
+`;
+
 const Header = () => {
-  const isNotDesktop = useMedia({ maxWidth: DESKTOP_VIEW });
   const [showMobileMenu, setShowMobileMenu] = useState(false);
 
   return (
@@ -37,9 +41,9 @@ const Header = () => {
 
         <Logo />
         <Navigation />
-        {isNotDesktop && (
+        <HamburgerWrapper>
           <Hamburger color="white" onToggle={setShowMobileMenu} />
-        )}
+        </HamburgerWrapper>
       </header>
     </HeaderContainer>
   );

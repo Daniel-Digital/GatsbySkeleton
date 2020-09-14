@@ -6,4 +6,5 @@ export const mediaQueries = {
   isNotDesktop: `@media (max-width: ${DESKTOP_VIEW})`,
 
   isTablet: `@media (min-width: ${TABLET_VIEW})`,
+  isNotTablet: `@media (max-width: ${TABLET_VIEW})`,
 };

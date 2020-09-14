@@ -16,7 +16,7 @@ const Container = styled.div`
 const MobileMenu: React.FC<Props> = ({ show }) => {
   const transitions = useTransition(show, null, {
     from: { opacity: 0.8, height: 0 },
-    enter: { opacity: 1, height: globalThis.document?.body?.clientHeight },
+    enter: { opacity: 1, height: globalThis.document?.body?.clientHeight || 0 },
     leave: { opacity: 0, height: 0 },
     config: config.slow,
   });
