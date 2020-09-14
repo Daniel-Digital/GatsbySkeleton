@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/track-sale-online",
+      "handler": "track-sale-online.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/track-sale-online",
+      "handler": "track-sale-online.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/track-sale-online",
+      "handler": "track-sale-online.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

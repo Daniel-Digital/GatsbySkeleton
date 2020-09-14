@@ -7,6 +7,7 @@ import styled from '@/styled';
 import Logo from './Logo';
 import { mediaQueries, DESKTOP_VIEW } from '@/styled/media';
 import MobileMenu from './MobileMenu';
+import Navigation from './Navigation';
 
 const HeaderContainer = styled.div`
   position: absolute;
@@ -35,6 +36,7 @@ const Header = () => {
         <MobileMenu show={showMobileMenu} />
 
         <Logo />
+        <Navigation />
         {isNotDesktop && (
           <Hamburger color="white" onToggle={setShowMobileMenu} />
         )}

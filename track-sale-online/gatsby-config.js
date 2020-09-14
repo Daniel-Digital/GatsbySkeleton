@@ -3,6 +3,16 @@ const path = require('path');
 module.exports = {
   plugins: [
     {
+      resolve: `gatsby-source-strapi`,
+      options: {
+        apiURL: `http://localhost:1337`,
+        queryLimit: 1000, // Default to 100
+        contentTypes: [`truck`],
+        //If using single types place them in this array.
+        singleTypes: [`track-sale-online`],
+      },
+    },
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `Assets`,

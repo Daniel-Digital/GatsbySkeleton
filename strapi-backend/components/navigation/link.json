@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_navigation_links",
+  "info": {
+    "name": "Link",
+    "icon": "anchor"
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "string",
+      "required": true
+    },
+    "href": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "kind": "collectionType",
+  "collectionName": "trucks",
+  "info": {
+    "name": "Truck"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "model": {
+      "type": "string",
+      "required": true
+    },
+    "make": {
+      "type": "string",
+      "required": true
+    },
+    "modelYear": {
+      "type": "string"
+    },
+    "modelGVWR": {
+      "type": "string"
+    },
+    "modelGCWR": {
+      "type": "string"
+    },
+    "modelGAWRFront": {
+      "type": "string"
+    },
+    "modelGAWRRear": {
+      "type": "string"
+    },
+    "modelPayload": {
+      "type": "string"
+    },
+    "modelSuspensionType": {
+      "type": "string"
+    },
+    "modelSuspensionCapacity": {
+      "type": "string"
+    },
+    "modelBrakeType": {
+      "type": "string"
+    },
+    "modelBrakesFront": {
+      "type": "string"
+    },
+    "modelBrakesRear": {
+      "type": "string"
+    },
+    "modelTransmission": {
+      "type": "string"
+    },
+    "modelEngine": {
+      "type": "string"
+    },
+    "modelEngineDisplacement": {
+      "type": "string"
+    },
+    "modelEngineHP": {
+      "type": "string"
+    },
+    "modelEngineTorque": {
+      "type": "string"
+    },
+    "modelBatteries": {
+      "type": "string"
+    },
+    "modelFuelTankCapacity": {
+      "type": "string"
+    },
+    "modelWheelbases": {
+      "type": "string"
+    },
+    "limitedSlipDifferential": {
+      "type": "string"
+    },
+    "modelPdfCatalogueLink": {
+      "type": "string"
+    },
+    "modelCabType": {
+      "type": "string"
+    },
+    "modelColors": {
+      "type": "string"
+    },
+    "airCleaners": {
+      "type": "string"
+    },
+    "batteryBox": {
+      "type": "string"
+    },
+    "bumper": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_footer_footers",
+  "info": {
+    "name": "Footer",
+    "icon": "align-center"
+  },
+  "options": {},
+  "attributes": {
+    "navigation": {
+      "type": "component",
+      "repeatable": true,
+      "component": "navigation.link"
+    }
+  }
+}

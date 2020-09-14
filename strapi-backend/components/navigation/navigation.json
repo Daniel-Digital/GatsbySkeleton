@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_navigation_navigations",
+  "info": {
+    "name": "Navigation",
+    "icon": "arrows-alt"
+  },
+  "options": {},
+  "attributes": {
+    "link": {
+      "type": "component",
+      "repeatable": true,
+      "component": "navigation.link"
+    }
+  }
+}

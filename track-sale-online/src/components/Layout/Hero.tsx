@@ -3,7 +3,7 @@ import React from 'react';
 import styled from '@/styled';
 
 const HeroContainer = styled.section`
-  height: 100vh;
+  height: 700px;
   background-color: ${(props) => props.theme.colors.secondary};
 `;
 

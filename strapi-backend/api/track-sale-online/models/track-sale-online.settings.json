@@ -1,0 +1,23 @@
+{
+  "kind": "singleType",
+  "collectionName": "track_sale_onlines",
+  "info": {
+    "name": "TrackSaleOnline"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "navigation": {
+      "type": "component",
+      "repeatable": false,
+      "component": "navigation.navigation"
+    },
+    "footer": {
+      "type": "component",
+      "repeatable": false,
+      "component": "footer.footer"
+    }
+  }
+}

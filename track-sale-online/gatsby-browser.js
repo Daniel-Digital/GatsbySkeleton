@@ -9,7 +9,7 @@ export const wrapPageElement = ({ element, props }) => {
   // including location, data, etc - you don't need to pass it
   return (
     <ThemeProvider theme={theme}>
-      <Layout {...props}>{element}</Layout>;
+      <Layout {...props}>{element}</Layout>
     </ThemeProvider>
   );
 };
