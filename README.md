@@ -1,6 +1,6 @@
 # GatsbySkeleton
 
-## deploy strapi to heroku
+## Deploy strapi to heroku (need to be run from the toplevel of the working tree)
 
 ```
   git subtree push --prefix strapi-backend heroku master
