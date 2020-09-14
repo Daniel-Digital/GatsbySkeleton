@@ -9,15 +9,15 @@
     "timestamps": true
   },
   "attributes": {
-    "navigation": {
-      "type": "component",
-      "repeatable": false,
-      "component": "navigation.navigation"
-    },
     "footer": {
       "type": "component",
       "repeatable": false,
       "component": "footer.footer"
+    },
+    "header": {
+      "type": "component",
+      "repeatable": false,
+      "component": "header.header"
     }
   }
 }

@@ -30,6 +30,9 @@ const Navigation = () => {
   const data = useStaticQuery<import('generated/graphql').NavigationQuery>(
     query,
   );
+
+  const links = data.strapiTrackSaleOnline.header.navigation;
+
   return (
     <div
       css={css`
@@ -39,7 +42,7 @@ const Navigation = () => {
         }
       `}
     >
-      {data.strapiTrackSaleOnline.navigation.link.map((item) => (
+      {links.map((item) => (
         <NavItem href={item.href} text={item.text} key={item.id} />
       ))}
     </div>
@@ -49,8 +52,8 @@ const Navigation = () => {
 const query = graphql`
   query Navigation {
     strapiTrackSaleOnline {
-      navigation {
-        link {
+      header {
+        navigation {
           id
           text
           href

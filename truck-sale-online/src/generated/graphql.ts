@@ -1,5 +1,7 @@
 export type Maybe<T> = T | null;
-export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
+export type Exact<T extends { [key: string]: unknown }> = {
+  [K in keyof T]: T[K];
+};
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
   ID: string;
@@ -19,7 +21,6 @@ export type BooleanQueryOperatorInput = {
   in?: Maybe<Array<Maybe<Scalars['Boolean']>>>;
   nin?: Maybe<Array<Maybe<Scalars['Boolean']>>>;
 };
-
 
 export type DateQueryOperatorInput = {
   eq?: Maybe<Scalars['Date']>;
@@ -75,14 +76,12 @@ export type Directory = Node & {
   internal: Internal;
 };
 
-
 export type DirectoryModifiedTimeArgs = {
   formatString?: Maybe<Scalars['String']>;
   fromNow?: Maybe<Scalars['Boolean']>;
   difference?: Maybe<Scalars['String']>;
   locale?: Maybe<Scalars['String']>;
 };
-
 
 export type DirectoryAccessTimeArgs = {
   formatString?: Maybe<Scalars['String']>;
@@ -91,14 +90,12 @@ export type DirectoryAccessTimeArgs = {
   locale?: Maybe<Scalars['String']>;
 };
 
-
 export type DirectoryChangeTimeArgs = {
   formatString?: Maybe<Scalars['String']>;
   fromNow?: Maybe<Scalars['Boolean']>;
   difference?: Maybe<Scalars['String']>;
   locale?: Maybe<Scalars['String']>;
 };
-
 
 export type DirectoryBirthTimeArgs = {
   formatString?: Maybe<Scalars['String']>;
@@ -107,7 +104,6 @@ export type DirectoryBirthTimeArgs = {
   locale?: Maybe<Scalars['String']>;
 };
 
-
 export type DirectoryAtimeArgs = {
   formatString?: Maybe<Scalars['String']>;
   fromNow?: Maybe<Scalars['Boolean']>;
@@ -115,14 +111,12 @@ export type DirectoryAtimeArgs = {
   locale?: Maybe<Scalars['String']>;
 };
 
-
 export type DirectoryMtimeArgs = {
   formatString?: Maybe<Scalars['String']>;
   fromNow?: Maybe<Scalars['Boolean']>;
   difference?: Maybe<Scalars['String']>;
   locale?: Maybe<Scalars['String']>;
 };
-
 
 export type DirectoryCtimeArgs = {
   formatString?: Maybe<Scalars['String']>;
@@ -141,11 +135,9 @@ export type DirectoryConnection = {
   group: Array<DirectoryGroupConnection>;
 };
 
-
 export type DirectoryConnectionDistinctArgs = {
   field: DirectoryFieldsEnum;
 };
-
 
 export type DirectoryConnectionGroupArgs = {
   skip?: Maybe<Scalars['Int']>;
@@ -279,7 +271,7 @@ export enum DirectoryFieldsEnum {
   InternalIgnoreType = 'internal___ignoreType',
   InternalMediaType = 'internal___mediaType',
   InternalOwner = 'internal___owner',
-  InternalType = 'internal___type'
+  InternalType = 'internal___type',
 }
 
 export type DirectoryFilterInput = {
@@ -387,14 +379,12 @@ export type File = Node & {
   internal: Internal;
 };
 
-
 export type FileModifiedTimeArgs = {
   formatString?: Maybe<Scalars['String']>;
   fromNow?: Maybe<Scalars['Boolean']>;
   difference?: Maybe<Scalars['String']>;
   locale?: Maybe<Scalars['String']>;
 };
-
 
 export type FileAccessTimeArgs = {
   formatString?: Maybe<Scalars['String']>;
@@ -403,14 +393,12 @@ export type FileAccessTimeArgs = {
   locale?: Maybe<Scalars['String']>;
 };
 
-
 export type FileChangeTimeArgs = {
   formatString?: Maybe<Scalars['String']>;
   fromNow?: Maybe<Scalars['Boolean']>;
   difference?: Maybe<Scalars['String']>;
   locale?: Maybe<Scalars['String']>;
 };
-
 
 export type FileBirthTimeArgs = {
   formatString?: Maybe<Scalars['String']>;
@@ -419,7 +407,6 @@ export type FileBirthTimeArgs = {
   locale?: Maybe<Scalars['String']>;
 };
 
-
 export type FileAtimeArgs = {
   formatString?: Maybe<Scalars['String']>;
   fromNow?: Maybe<Scalars['Boolean']>;
@@ -427,14 +414,12 @@ export type FileAtimeArgs = {
   locale?: Maybe<Scalars['String']>;
 };
 
-
 export type FileMtimeArgs = {
   formatString?: Maybe<Scalars['String']>;
   fromNow?: Maybe<Scalars['Boolean']>;
   difference?: Maybe<Scalars['String']>;
   locale?: Maybe<Scalars['String']>;
 };
-
 
 export type FileCtimeArgs = {
   formatString?: Maybe<Scalars['String']>;
@@ -453,11 +438,9 @@ export type FileConnection = {
   group: Array<FileGroupConnection>;
 };
 
-
 export type FileConnectionDistinctArgs = {
   field: FileFieldsEnum;
 };
-
 
 export type FileConnectionGroupArgs = {
   skip?: Maybe<Scalars['Int']>;
@@ -681,7 +664,7 @@ export enum FileFieldsEnum {
   InternalIgnoreType = 'internal___ignoreType',
   InternalMediaType = 'internal___mediaType',
   InternalOwner = 'internal___owner',
-  InternalType = 'internal___type'
+  InternalType = 'internal___type',
 }
 
 export type FileFilterInput = {
@@ -761,7 +744,7 @@ export enum ImageCropFocus {
   West = 'WEST',
   Northwest = 'NORTHWEST',
   Entropy = 'ENTROPY',
-  Attention = 'ATTENTION'
+  Attention = 'ATTENTION',
 }
 
 export enum ImageFit {
@@ -769,14 +752,14 @@ export enum ImageFit {
   Contain = 'CONTAIN',
   Fill = 'FILL',
   Inside = 'INSIDE',
-  Outside = 'OUTSIDE'
+  Outside = 'OUTSIDE',
 }
 
 export enum ImageFormat {
   NoChange = 'NO_CHANGE',
   Jpg = 'JPG',
   Png = 'PNG',
-  Webp = 'WEBP'
+  Webp = 'WEBP',
 }
 
 export type ImageSharp = Node & {
@@ -794,7 +777,6 @@ export type ImageSharp = Node & {
   children: Array<Node>;
   internal: Internal;
 };
-
 
 export type ImageSharpFixedArgs = {
   width?: Maybe<Scalars['Int']>;
@@ -818,7 +800,6 @@ export type ImageSharpFixedArgs = {
   trim?: Maybe<Scalars['Float']>;
 };
 
-
 export type ImageSharpResolutionsArgs = {
   width?: Maybe<Scalars['Int']>;
   height?: Maybe<Scalars['Int']>;
@@ -840,7 +821,6 @@ export type ImageSharpResolutionsArgs = {
   rotate?: Maybe<Scalars['Int']>;
   trim?: Maybe<Scalars['Float']>;
 };
-
 
 export type ImageSharpFluidArgs = {
   maxWidth?: Maybe<Scalars['Int']>;
@@ -866,7 +846,6 @@ export type ImageSharpFluidArgs = {
   srcSetBreakpoints?: Maybe<Array<Maybe<Scalars['Int']>>>;
 };
 
-
 export type ImageSharpSizesArgs = {
   maxWidth?: Maybe<Scalars['Int']>;
   maxHeight?: Maybe<Scalars['Int']>;
@@ -890,7 +869,6 @@ export type ImageSharpSizesArgs = {
   sizes?: Maybe<Scalars['String']>;
   srcSetBreakpoints?: Maybe<Array<Maybe<Scalars['Int']>>>;
 };
-
 
 export type ImageSharpResizeArgs = {
   width?: Maybe<Scalars['Int']>;
@@ -924,11 +902,9 @@ export type ImageSharpConnection = {
   group: Array<ImageSharpGroupConnection>;
 };
 
-
 export type ImageSharpConnectionDistinctArgs = {
   field: ImageSharpFieldsEnum;
 };
-
 
 export type ImageSharpConnectionGroupArgs = {
   skip?: Maybe<Scalars['Int']>;
@@ -1082,7 +1058,7 @@ export enum ImageSharpFieldsEnum {
   InternalIgnoreType = 'internal___ignoreType',
   InternalMediaType = 'internal___mediaType',
   InternalOwner = 'internal___owner',
-  InternalType = 'internal___type'
+  InternalType = 'internal___type',
 }
 
 export type ImageSharpFilterInput = {
@@ -1295,7 +1271,6 @@ export type IntQueryOperatorInput = {
   nin?: Maybe<Array<Maybe<Scalars['Int']>>>;
 };
 
-
 /** Node Interface */
 export type Node = {
   id: Scalars['ID'];
@@ -1344,7 +1319,7 @@ export enum PotraceTurnPolicy {
   TurnpolicyLeft = 'TURNPOLICY_LEFT',
   TurnpolicyRight = 'TURNPOLICY_RIGHT',
   TurnpolicyMinority = 'TURNPOLICY_MINORITY',
-  TurnpolicyMajority = 'TURNPOLICY_MAJORITY'
+  TurnpolicyMajority = 'TURNPOLICY_MAJORITY',
 }
 
 export type Query = {
@@ -1366,7 +1341,6 @@ export type Query = {
   sitePlugin?: Maybe<SitePlugin>;
   allSitePlugin: SitePluginConnection;
 };
-
 
 export type QueryFileArgs = {
   sourceInstanceName?: Maybe<StringQueryOperatorInput>;
@@ -1408,14 +1382,12 @@ export type QueryFileArgs = {
   internal?: Maybe<InternalFilterInput>;
 };
 
-
 export type QueryAllFileArgs = {
   filter?: Maybe<FileFilterInput>;
   sort?: Maybe<FileSortInput>;
   skip?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
 };
-
 
 export type QueryDirectoryArgs = {
   sourceInstanceName?: Maybe<StringQueryOperatorInput>;
@@ -1457,14 +1429,12 @@ export type QueryDirectoryArgs = {
   internal?: Maybe<InternalFilterInput>;
 };
 
-
 export type QueryAllDirectoryArgs = {
   filter?: Maybe<DirectoryFilterInput>;
   sort?: Maybe<DirectorySortInput>;
   skip?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
 };
-
 
 export type QuerySitePageArgs = {
   path?: Maybe<StringQueryOperatorInput>;
@@ -1482,14 +1452,12 @@ export type QuerySitePageArgs = {
   componentPath?: Maybe<StringQueryOperatorInput>;
 };
 
-
 export type QueryAllSitePageArgs = {
   filter?: Maybe<SitePageFilterInput>;
   sort?: Maybe<SitePageSortInput>;
   skip?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
 };
-
 
 export type QuerySiteArgs = {
   buildTime?: Maybe<DateQueryOperatorInput>;
@@ -1503,14 +1471,12 @@ export type QuerySiteArgs = {
   internal?: Maybe<InternalFilterInput>;
 };
 
-
 export type QueryAllSiteArgs = {
   filter?: Maybe<SiteFilterInput>;
   sort?: Maybe<SiteSortInput>;
   skip?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
 };
-
 
 export type QueryImageSharpArgs = {
   fixed?: Maybe<ImageSharpFixedFilterInput>;
@@ -1525,14 +1491,12 @@ export type QueryImageSharpArgs = {
   internal?: Maybe<InternalFilterInput>;
 };
 
-
 export type QueryAllImageSharpArgs = {
   filter?: Maybe<ImageSharpFilterInput>;
   sort?: Maybe<ImageSharpSortInput>;
   skip?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
 };
-
 
 export type QueryStrapiTrackSaleOnlineArgs = {
   id?: Maybe<StringQueryOperatorInput>;
@@ -1543,11 +1507,10 @@ export type QueryStrapiTrackSaleOnlineArgs = {
   updated_by?: Maybe<StrapiTrackSaleOnlineUpdated_ByFilterInput>;
   created_at?: Maybe<DateQueryOperatorInput>;
   updated_at?: Maybe<DateQueryOperatorInput>;
-  navigation?: Maybe<StrapiTrackSaleOnlineNavigationFilterInput>;
   footer?: Maybe<StrapiTrackSaleOnlineFooterFilterInput>;
+  header?: Maybe<StrapiTrackSaleOnlineHeaderFilterInput>;
   strapiId?: Maybe<IntQueryOperatorInput>;
 };
-
 
 export type QueryAllStrapiTrackSaleOnlineArgs = {
   filter?: Maybe<StrapiTrackSaleOnlineFilterInput>;
@@ -1555,7 +1518,6 @@ export type QueryAllStrapiTrackSaleOnlineArgs = {
   skip?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
 };
-
 
 export type QuerySiteBuildMetadataArgs = {
   id?: Maybe<StringQueryOperatorInput>;
@@ -1565,14 +1527,12 @@ export type QuerySiteBuildMetadataArgs = {
   buildTime?: Maybe<DateQueryOperatorInput>;
 };
 
-
 export type QueryAllSiteBuildMetadataArgs = {
   filter?: Maybe<SiteBuildMetadataFilterInput>;
   sort?: Maybe<SiteBuildMetadataSortInput>;
   skip?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
 };
-
 
 export type QuerySitePluginArgs = {
   id?: Maybe<StringQueryOperatorInput>;
@@ -1589,7 +1549,6 @@ export type QuerySitePluginArgs = {
   pluginFilepath?: Maybe<StringQueryOperatorInput>;
   packageJson?: Maybe<SitePluginPackageJsonFilterInput>;
 };
-
 
 export type QueryAllSitePluginArgs = {
   filter?: Maybe<SitePluginFilterInput>;
@@ -1611,14 +1570,12 @@ export type Site = Node & {
   internal: Internal;
 };
 
-
 export type SiteBuildTimeArgs = {
   formatString?: Maybe<Scalars['String']>;
   fromNow?: Maybe<Scalars['Boolean']>;
   difference?: Maybe<Scalars['String']>;
   locale?: Maybe<Scalars['String']>;
 };
-
 
 export type SitePortArgs = {
   formatString?: Maybe<Scalars['String']>;
@@ -1635,7 +1592,6 @@ export type SiteBuildMetadata = Node & {
   internal: Internal;
   buildTime?: Maybe<Scalars['Date']>;
 };
-
 
 export type SiteBuildMetadataBuildTimeArgs = {
   formatString?: Maybe<Scalars['String']>;
@@ -1654,11 +1610,9 @@ export type SiteBuildMetadataConnection = {
   group: Array<SiteBuildMetadataGroupConnection>;
 };
 
-
 export type SiteBuildMetadataConnectionDistinctArgs = {
   field: SiteBuildMetadataFieldsEnum;
 };
-
 
 export type SiteBuildMetadataConnectionGroupArgs = {
   skip?: Maybe<Scalars['Int']>;
@@ -1760,7 +1714,7 @@ export enum SiteBuildMetadataFieldsEnum {
   InternalMediaType = 'internal___mediaType',
   InternalOwner = 'internal___owner',
   InternalType = 'internal___type',
-  BuildTime = 'buildTime'
+  BuildTime = 'buildTime',
 }
 
 export type SiteBuildMetadataFilterInput = {
@@ -1796,11 +1750,9 @@ export type SiteConnection = {
   group: Array<SiteGroupConnection>;
 };
 
-
 export type SiteConnectionDistinctArgs = {
   field: SiteFieldsEnum;
 };
-
 
 export type SiteConnectionGroupArgs = {
   skip?: Maybe<Scalars['Int']>;
@@ -1906,7 +1858,7 @@ export enum SiteFieldsEnum {
   InternalIgnoreType = 'internal___ignoreType',
   InternalMediaType = 'internal___mediaType',
   InternalOwner = 'internal___owner',
-  InternalType = 'internal___type'
+  InternalType = 'internal___type',
 }
 
 export type SiteFilterInput = {
@@ -1958,11 +1910,9 @@ export type SitePageConnection = {
   group: Array<SitePageGroupConnection>;
 };
 
-
 export type SitePageConnectionDistinctArgs = {
   field: SitePageFieldsEnum;
 };
-
 
 export type SitePageConnectionGroupArgs = {
   skip?: Maybe<Scalars['Int']>;
@@ -2138,7 +2088,7 @@ export enum SitePageFieldsEnum {
   PluginCreatorPackageJsonPeerDependenciesVersion = 'pluginCreator___packageJson___peerDependencies___version',
   PluginCreatorPackageJsonKeywords = 'pluginCreator___packageJson___keywords',
   PluginCreatorId = 'pluginCreatorId',
-  ComponentPath = 'componentPath'
+  ComponentPath = 'componentPath',
 }
 
 export type SitePageFilterInput = {
@@ -2199,11 +2149,9 @@ export type SitePluginConnection = {
   group: Array<SitePluginGroupConnection>;
 };
 
-
 export type SitePluginConnectionDistinctArgs = {
   field: SitePluginFieldsEnum;
 };
-
 
 export type SitePluginConnectionGroupArgs = {
   skip?: Maybe<Scalars['Int']>;
@@ -2333,7 +2281,7 @@ export enum SitePluginFieldsEnum {
   PackageJsonPeerDependencies = 'packageJson___peerDependencies',
   PackageJsonPeerDependenciesName = 'packageJson___peerDependencies___name',
   PackageJsonPeerDependenciesVersion = 'packageJson___peerDependencies___version',
-  PackageJsonKeywords = 'packageJson___keywords'
+  PackageJsonKeywords = 'packageJson___keywords',
 }
 
 export type SitePluginFilterInput = {
@@ -2413,7 +2361,9 @@ export type SitePluginPackageJsonFilterInput = {
   license?: Maybe<StringQueryOperatorInput>;
   dependencies?: Maybe<SitePluginPackageJsonDependenciesFilterListInput>;
   devDependencies?: Maybe<SitePluginPackageJsonDevDependenciesFilterListInput>;
-  peerDependencies?: Maybe<SitePluginPackageJsonPeerDependenciesFilterListInput>;
+  peerDependencies?: Maybe<
+    SitePluginPackageJsonPeerDependenciesFilterListInput
+  >;
   keywords?: Maybe<StringQueryOperatorInput>;
 };
 
@@ -2465,7 +2415,7 @@ export type SiteSortInput = {
 
 export enum SortOrderEnum {
   Asc = 'ASC',
-  Desc = 'DESC'
+  Desc = 'DESC',
 }
 
 export type StrapiTrackSaleOnline = Node & {
@@ -2478,11 +2428,10 @@ export type StrapiTrackSaleOnline = Node & {
   updated_by?: Maybe<StrapiTrackSaleOnlineUpdated_By>;
   created_at?: Maybe<Scalars['Date']>;
   updated_at?: Maybe<Scalars['Date']>;
-  navigation?: Maybe<StrapiTrackSaleOnlineNavigation>;
   footer?: Maybe<StrapiTrackSaleOnlineFooter>;
+  header?: Maybe<StrapiTrackSaleOnlineHeader>;
   strapiId?: Maybe<Scalars['Int']>;
 };
-
 
 export type StrapiTrackSaleOnlineCreated_AtArgs = {
   formatString?: Maybe<Scalars['String']>;
@@ -2490,7 +2439,6 @@ export type StrapiTrackSaleOnlineCreated_AtArgs = {
   difference?: Maybe<Scalars['String']>;
   locale?: Maybe<Scalars['String']>;
 };
-
 
 export type StrapiTrackSaleOnlineUpdated_AtArgs = {
   formatString?: Maybe<Scalars['String']>;
@@ -2509,11 +2457,9 @@ export type StrapiTrackSaleOnlineConnection = {
   group: Array<StrapiTrackSaleOnlineGroupConnection>;
 };
 
-
 export type StrapiTrackSaleOnlineConnectionDistinctArgs = {
   field: StrapiTrackSaleOnlineFieldsEnum;
 };
-
 
 export type StrapiTrackSaleOnlineConnectionGroupArgs = {
   skip?: Maybe<Scalars['Int']>;
@@ -2636,17 +2582,17 @@ export enum StrapiTrackSaleOnlineFieldsEnum {
   UpdatedByLastname = 'updated_by___lastname',
   CreatedAt = 'created_at',
   UpdatedAt = 'updated_at',
-  NavigationId = 'navigation___id',
-  NavigationLink = 'navigation___link',
-  NavigationLinkId = 'navigation___link___id',
-  NavigationLinkText = 'navigation___link___text',
-  NavigationLinkHref = 'navigation___link___href',
   FooterId = 'footer___id',
   FooterNavigation = 'footer___navigation',
   FooterNavigationId = 'footer___navigation___id',
   FooterNavigationText = 'footer___navigation___text',
   FooterNavigationHref = 'footer___navigation___href',
-  StrapiId = 'strapiId'
+  HeaderId = 'header___id',
+  HeaderNavigation = 'header___navigation',
+  HeaderNavigationId = 'header___navigation___id',
+  HeaderNavigationText = 'header___navigation___text',
+  HeaderNavigationHref = 'header___navigation___href',
+  StrapiId = 'strapiId',
 }
 
 export type StrapiTrackSaleOnlineFilterInput = {
@@ -2658,8 +2604,8 @@ export type StrapiTrackSaleOnlineFilterInput = {
   updated_by?: Maybe<StrapiTrackSaleOnlineUpdated_ByFilterInput>;
   created_at?: Maybe<DateQueryOperatorInput>;
   updated_at?: Maybe<DateQueryOperatorInput>;
-  navigation?: Maybe<StrapiTrackSaleOnlineNavigationFilterInput>;
   footer?: Maybe<StrapiTrackSaleOnlineFooterFilterInput>;
+  header?: Maybe<StrapiTrackSaleOnlineHeaderFilterInput>;
   strapiId?: Maybe<IntQueryOperatorInput>;
 };
 
@@ -2701,32 +2647,32 @@ export type StrapiTrackSaleOnlineGroupConnection = {
   fieldValue?: Maybe<Scalars['String']>;
 };
 
-export type StrapiTrackSaleOnlineNavigation = {
-  __typename?: 'StrapiTrackSaleOnlineNavigation';
+export type StrapiTrackSaleOnlineHeader = {
+  __typename?: 'StrapiTrackSaleOnlineHeader';
   id?: Maybe<Scalars['Int']>;
-  link?: Maybe<Array<Maybe<StrapiTrackSaleOnlineNavigationLink>>>;
+  navigation?: Maybe<Array<Maybe<StrapiTrackSaleOnlineHeaderNavigation>>>;
 };
 
-export type StrapiTrackSaleOnlineNavigationFilterInput = {
+export type StrapiTrackSaleOnlineHeaderFilterInput = {
   id?: Maybe<IntQueryOperatorInput>;
-  link?: Maybe<StrapiTrackSaleOnlineNavigationLinkFilterListInput>;
+  navigation?: Maybe<StrapiTrackSaleOnlineHeaderNavigationFilterListInput>;
 };
 
-export type StrapiTrackSaleOnlineNavigationLink = {
-  __typename?: 'StrapiTrackSaleOnlineNavigationLink';
+export type StrapiTrackSaleOnlineHeaderNavigation = {
+  __typename?: 'StrapiTrackSaleOnlineHeaderNavigation';
   id?: Maybe<Scalars['Int']>;
   text?: Maybe<Scalars['String']>;
   href?: Maybe<Scalars['String']>;
 };
 
-export type StrapiTrackSaleOnlineNavigationLinkFilterInput = {
+export type StrapiTrackSaleOnlineHeaderNavigationFilterInput = {
   id?: Maybe<IntQueryOperatorInput>;
   text?: Maybe<StringQueryOperatorInput>;
   href?: Maybe<StringQueryOperatorInput>;
 };
 
-export type StrapiTrackSaleOnlineNavigationLinkFilterListInput = {
-  elemMatch?: Maybe<StrapiTrackSaleOnlineNavigationLinkFilterInput>;
+export type StrapiTrackSaleOnlineHeaderNavigationFilterListInput = {
+  elemMatch?: Maybe<StrapiTrackSaleOnlineHeaderNavigationFilterInput>;
 };
 
 export type StrapiTrackSaleOnlineSortInput = {
@@ -2756,36 +2702,48 @@ export type StringQueryOperatorInput = {
   glob?: Maybe<Scalars['String']>;
 };
 
-export type FooterNavigationQueryVariables = Exact<{ [key: string]: never; }>;
+export type FooterNavigationQueryVariables = Exact<{ [key: string]: never }>;
 
+export type FooterNavigationQuery = { __typename?: 'Query' } & {
+  strapiTrackSaleOnline?: Maybe<
+    { __typename?: 'StrapiTrackSaleOnline' } & {
+      footer?: Maybe<
+        { __typename?: 'StrapiTrackSaleOnlineFooter' } & {
+          navigation?: Maybe<
+            Array<
+              Maybe<
+                { __typename?: 'StrapiTrackSaleOnlineFooterNavigation' } & Pick<
+                  StrapiTrackSaleOnlineFooterNavigation,
+                  'id' | 'text' | 'href'
+                >
+              >
+            >
+          >;
+        }
+      >;
+    }
+  >;
+};
 
-export type FooterNavigationQuery = (
-  { __typename?: 'Query' }
-  & { strapiTrackSaleOnline?: Maybe<(
-    { __typename?: 'StrapiTrackSaleOnline' }
-    & { footer?: Maybe<(
-      { __typename?: 'StrapiTrackSaleOnlineFooter' }
-      & { navigation?: Maybe<Array<Maybe<(
-        { __typename?: 'StrapiTrackSaleOnlineFooterNavigation' }
-        & Pick<StrapiTrackSaleOnlineFooterNavigation, 'id' | 'text' | 'href'>
-      )>>> }
-    )> }
-  )> }
-);
+export type NavigationQueryVariables = Exact<{ [key: string]: never }>;
 
-export type NavigationQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type NavigationQuery = (
-  { __typename?: 'Query' }
-  & { strapiTrackSaleOnline?: Maybe<(
-    { __typename?: 'StrapiTrackSaleOnline' }
-    & { navigation?: Maybe<(
-      { __typename?: 'StrapiTrackSaleOnlineNavigation' }
-      & { link?: Maybe<Array<Maybe<(
-        { __typename?: 'StrapiTrackSaleOnlineNavigationLink' }
-        & Pick<StrapiTrackSaleOnlineNavigationLink, 'id' | 'text' | 'href'>
-      )>>> }
-    )> }
-  )> }
-);
+export type NavigationQuery = { __typename?: 'Query' } & {
+  strapiTrackSaleOnline?: Maybe<
+    { __typename?: 'StrapiTrackSaleOnline' } & {
+      header?: Maybe<
+        { __typename?: 'StrapiTrackSaleOnlineHeader' } & {
+          navigation?: Maybe<
+            Array<
+              Maybe<
+                { __typename?: 'StrapiTrackSaleOnlineHeaderNavigation' } & Pick<
+                  StrapiTrackSaleOnlineHeaderNavigation,
+                  'id' | 'text' | 'href'
+                >
+              >
+            >
+          >;
+        }
+      >;
+    }
+  >;
+};

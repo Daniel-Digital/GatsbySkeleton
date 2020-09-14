@@ -6,9 +6,9 @@ module.exports = {
       resolve: `gatsby-source-strapi`,
       options: {
         apiURL:
-          process.env.NODE_END === 'development'
-            ? `http://localhost:1337`
-            : `https://strapi-backend-demo.herokuapp.com`,
+          process.env.NODE_END === 'production'
+            ? `https://strapi-backend-demo.herokuapp.com`
+            : `http://localhost:1337`,
         queryLimit: 1000, // Default to 100
         contentTypes: [`truck`],
         //If using single types place them in this array.
