@@ -8,6 +8,7 @@ import TextField from '@/components/Inputs/TextField';
 import TextArea from '@/components/Inputs/TextArea';
 import Button from '@/components/Button';
 import { Theme } from '@/styled/theme';
+import { mediaQueries } from '@/styled/media';
 
 const Line = styled.div`
   margin-top: 30px;
@@ -23,26 +24,32 @@ const Line = styled.div`
 `;
 
 const Form = styled.form`
-  width: 50%;
   display: flex;
-  flex-wrap: wrap;
+  flex-flow: nowrap column;
+  padding-left: 20px;
+  padding-right: 20px;
 
-  > *:nth-child(1) {
-    flex: calc(50% - 15px);
-    margin-right: 15px;
-  }
-  > *:nth-child(2) {
-    flex: calc(50% - 15px);
-    margin-left: 15px;
-  }
+  ${mediaQueries.isTablet} {
+    width: 50%;
+    flex-flow: wrap row;
 
-  /* TextArea */
-  > *:nth-child(3) {
-    flex: 100%;
-  }
+    > *:nth-child(1) {
+      flex: calc(50% - 15px);
+      margin-right: 15px;
+    }
+    > *:nth-child(2) {
+      flex: calc(50% - 15px);
+      margin-left: 15px;
+    }
 
-  > * {
-    margin-bottom: 19px;
+    /* TextArea */
+    > *:nth-child(3) {
+      flex: 100%;
+    }
+
+    > * {
+      margin-bottom: 19px;
+    }
   }
 `;
 
@@ -53,6 +60,12 @@ const ContactItem = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  ${mediaQueries.isNotTablet} {
+    &:first-child {
+      margin-bottom: 40px;
+    }
+  }
 `;
 
 const ContactInfo = styled.div`
@@ -62,6 +75,20 @@ const ContactInfo = styled.div`
   justify-content: space-evenly;
   /* Size of the submit button */
   padding-bottom: calc(1rem + 50px);
+`;
+
+const formLayout = css`
+  display: flex;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  > * {
+    flex: 1;
+  }
+
+  ${mediaQueries.isNotTablet} {
+    flex-direction: column-reverse;
+  }
 `;
 
 const ContactForm = () => {
@@ -96,17 +123,7 @@ const ContactForm = () => {
         Lorem ipsum dolor sit amet, consectetuer adipiscing elit enean commodo
         eget dolor aenean massa eget dolor aenean massa
       </p>
-      <div
-        css={css`
-          display: flex;
-          max-width: 1200px;
-          margin-left: auto;
-          margin-right: auto;
-          > * {
-            flex: 1;
-          }
-        `}
-      >
+      <div css={formLayout}>
         <Form>
           <TextField placeholder="Name" />
           <TextField placeholder="Email" />

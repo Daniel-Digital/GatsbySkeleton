@@ -5,7 +5,9 @@ const Legal = () => {
   return (
     <div
       css={css`
-        color: #ccc;
+        color: #777;
+        margin-top: 20px;
+        text-align: center;
       `}
     >
       &copy; 2020 Truck sale online

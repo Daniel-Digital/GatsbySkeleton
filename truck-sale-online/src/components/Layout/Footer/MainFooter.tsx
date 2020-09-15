@@ -1,6 +1,17 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import { graphql, useStaticQuery } from 'gatsby';
+import styled from '@/styled';
+import { css } from '@emotion/core';
+
+const StyledLink = styled(Link)`
+  color: #ccc;
+  margin-left: 10px;
+  margin-right: 10px;
+  :hover {
+    text-decoration: underline;
+  }
+`;
 
 const MainFooter = () => {
   const data = useStaticQuery<
@@ -10,11 +21,17 @@ const MainFooter = () => {
   const links = data.strapiTrackSaleOnline.footer.navigation;
 
   return (
-    <div>
+    <div
+      css={css`
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+      `}
+    >
       {links.map((link) => (
-        <Link to={link.href} key={link.id}>
+        <StyledLink to={link.href} key={link.id}>
           {link.text}
-        </Link>
+        </StyledLink>
       ))}
     </div>
   );
