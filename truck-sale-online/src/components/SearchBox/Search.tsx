@@ -1,5 +1,6 @@
 import React from 'react';
 import Autosuggest from 'react-autosuggest';
+import { AiOutlineSearch } from 'react-icons/ai';
 import styled from '@/styled';
 
 const Container = styled.div`
@@ -7,10 +8,15 @@ const Container = styled.div`
   top: 210px;
   width: 100%;
   text-align: center;
-  outline: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   .react-autosuggest__input {
-    width: 75%;
+    flex: 1;
+    outline: none;
+    margin-right: 10px;
+    padding: 5px 10px;
   }
 `;
 
@@ -94,6 +100,7 @@ class Search extends React.Component {
           renderSuggestion={renderSuggestion}
           inputProps={inputProps}
         />
+        <AiOutlineSearch size={22} />
       </Container>
     );
   }

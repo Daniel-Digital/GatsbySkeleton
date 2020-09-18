@@ -13,7 +13,7 @@ const NavItemContainer = styled.div`
   font-size: 16px;
   text-transform: uppercase;
   font-family: 'Roboto', sans-serif;
-  font-weight: 500;
+  font-weight: 600;
   color: white;
   transition: text-shadow 0.3s;
   :hover {

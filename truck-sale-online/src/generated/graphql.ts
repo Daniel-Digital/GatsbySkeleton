@@ -2915,6 +2915,23 @@ export type NavigationQuery = (
   )> }
 );
 
+export type TruckHeroImageQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type TruckHeroImageQuery = (
+  { __typename?: 'Query' }
+  & { file?: Maybe<(
+    { __typename?: 'File' }
+    & { childImageSharp?: Maybe<(
+      { __typename?: 'ImageSharp' }
+      & { fluid?: Maybe<(
+        { __typename?: 'ImageSharpFluid' }
+        & GatsbyImageSharpFluidFragment
+      )> }
+    )> }
+  )> }
+);
+
 export type WorldMapImageQueryVariables = Exact<{ [key: string]: never; }>;
 
 

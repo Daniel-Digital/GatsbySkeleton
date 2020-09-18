@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'gatsby';
 import { css } from '@emotion/core';
 import { Squash as Hamburger } from 'hamburger-react';
 
@@ -39,7 +40,9 @@ const Header = () => {
       >
         <MobileMenu show={showMobileMenu} />
 
-        <Logo />
+        <Link to="/">
+          <Logo />
+        </Link>
         <Navigation />
         <HamburgerWrapper>
           <Hamburger color="white" onToggle={setShowMobileMenu} />
