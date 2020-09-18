@@ -10,7 +10,7 @@ type NavItemProps = {
 };
 
 const NavItemContainer = styled.div`
-  font-size: 18px;
+  font-size: 16px;
   text-transform: uppercase;
   font-family: 'Roboto', sans-serif;
   font-weight: 500;
@@ -39,7 +39,7 @@ const Navigation = () => {
       css={css`
         display: flex;
         > * {
-          margin-right: 20px;
+          margin-right: 25px;
         }
         ${mediaQueries.isNotTablet} {
           display: none;

@@ -1,13 +1,10 @@
 import React from 'react';
-import {
-  AiOutlineFacebook,
-  AiOutlineTwitter,
-  AiOutlineInstagram,
-} from 'react-icons/ai';
 
 import styled from '@/styled';
+import SearchBox from '../SearchBox/SearchBox';
 
 const HeroContainer = styled.section`
+  position: relative;
   height: 100vh;
   max-height: 700px;
   background-color: ${(props) => props.theme.colors.secondary};
@@ -25,6 +22,7 @@ const Hero = () => {
   return (
     <HeroContainer>
       <Poligon />
+      <SearchBox />
     </HeroContainer>
   );
 };
