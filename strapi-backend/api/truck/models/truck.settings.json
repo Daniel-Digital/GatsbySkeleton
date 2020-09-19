@@ -13,10 +13,6 @@
       "type": "string",
       "required": true
     },
-    "make": {
-      "type": "string",
-      "required": true
-    },
     "modelYear": {
       "type": "string"
     },
@@ -103,6 +99,10 @@
       ],
       "plugin": "upload",
       "required": false
+    },
+    "make": {
+      "model": "make",
+      "via": "trucks"
     }
   }
 }

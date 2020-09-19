@@ -1,4 +1,5 @@
 import React from 'react';
+import { useQuery } from 'react-query';
 import { graphql, useStaticQuery } from 'gatsby';
 import BackgroundImage from 'gatsby-background-image';
 
@@ -7,6 +8,8 @@ import SearchBox from '../SearchBox/SearchBox';
 import { TruckHeroImageQuery } from '@/generated/graphql';
 import { css } from '@emotion/core';
 import Button from '../Button';
+import HttpFetch from '@/lib/api/http-fetch';
+import getImageUrl from '@/lib/utils/getImageUrl';
 
 const HeroContainer = styled.section`
   position: relative;
@@ -14,7 +17,26 @@ const HeroContainer = styled.section`
   max-height: 700px;
 `;
 
-const HeroImage = styled(BackgroundImage)`
+type HeroImageProps = {
+  background: string;
+};
+
+const HeroImage = styled.div<HeroImageProps>`
+  position: absolute;
+  width: 80%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background-image: url(${(props) => props.background});
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: rgba(33, 33, 33, 0.85);
+  background-blend-mode: multiply;
+  z-index: -1;
+`;
+
+const GatsbyHeroImage = styled(BackgroundImage)`
   position: absolute;
   width: 80%;
   height: 100%;
@@ -46,9 +68,17 @@ const Poligon = styled.div`
 
 const Hero = () => {
   const data = useStaticQuery<TruckHeroImageQuery>(query);
+  const featuredTrucks = useQuery('featured-trucks', () =>
+    HttpFetch.get({ url: '/trucks' }),
+  );
+
   return (
     <HeroContainer>
-      <HeroImage fluid={data.file.childImageSharp.fluid} />
+      {featuredTrucks.data ? (
+        <HeroImage background={getImageUrl(featuredTrucks.data[0].image.url)} />
+      ) : (
+        <GatsbyHeroImage fluid={data.file.childImageSharp.fluid} />
+      )}
       <Poligon />
       <SliderText>
         <h1
