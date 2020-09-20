@@ -2,6 +2,7 @@ import React from 'react';
 import { css } from '@emotion/core';
 import Button from '../Button';
 import styled from '@/styled';
+import { Link } from 'gatsby';
 
 const Container = styled.div`
   position: absolute;
@@ -14,9 +15,15 @@ type Props = {
   title: string;
   subtitle: string;
   buttonText: string;
+  buttonLink: string;
 };
 
-const HeroSliderText: React.FC<Props> = ({ title, subtitle, buttonText }) => {
+const HeroSliderText: React.FC<Props> = ({
+  title,
+  subtitle,
+  buttonText,
+  buttonLink,
+}) => {
   return (
     <Container>
       <h1
@@ -45,7 +52,9 @@ const HeroSliderText: React.FC<Props> = ({ title, subtitle, buttonText }) => {
         >
           {subtitle}
         </h2>
-        <Button>{buttonText}</Button>
+        <Button>
+          <Link to={buttonLink}>{buttonText}</Link>
+        </Button>
       </div>
     </Container>
   );

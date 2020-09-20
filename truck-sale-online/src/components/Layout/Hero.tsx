@@ -10,6 +10,7 @@ import HttpFetch from '@/lib/api/http-fetch';
 import getImageUrl from '@/lib/utils/getImageUrl';
 import HeroSliderText from './HeroSliderText';
 import { css } from '@emotion/core';
+import slugify from 'slugify';
 
 const HeroContainer = styled.section`
   position: relative;
@@ -96,6 +97,7 @@ const Hero = () => {
           } ${currectTruck.model}`}
           subtitle={''}
           buttonText={`Explore ${currectTruck.make?.name} for Sale`}
+          buttonLink={`/truck-makes/${slugify(currectTruck.make?.name)}`}
         />
       )}
       <SearchBox />
