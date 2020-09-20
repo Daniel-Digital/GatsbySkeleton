@@ -44,6 +44,7 @@
     "react-query": "^2.23.0",
     "react-query-devtools": "^2.5.0",
     "react-spring": "^8.0.27",
+    "slugify": "^1.4.5",
     "tsconfig-paths-webpack-plugin": "^3.2.0"
   },
   "devDependencies": {

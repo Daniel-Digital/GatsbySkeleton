@@ -11,7 +11,11 @@ const Logo = () => {
       `}
     >
       <MdLocalShipping color="white" size={56} />
-      <div>
+      <div
+        css={css`
+          margin-left: 30px;
+        `}
+      >
         <h1
           css={css`
             color: white;

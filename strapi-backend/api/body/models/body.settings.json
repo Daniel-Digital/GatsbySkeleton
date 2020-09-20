@@ -1,0 +1,103 @@
+{
+  "kind": "collectionType",
+  "collectionName": "bodies",
+  "info": {
+    "name": "Body"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "company": {
+      "type": "string"
+    },
+    "pdfLink": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    },
+    "model": {
+      "type": "string"
+    },
+    "subframe": {
+      "type": "string"
+    },
+    "floor": {
+      "type": "string"
+    },
+    "threshold": {
+      "type": "string"
+    },
+    "mounting": {
+      "type": "string"
+    },
+    "rearDoor": {
+      "type": "string"
+    },
+    "rearFrame": {
+      "type": "string"
+    },
+    "roof": {
+      "type": "string"
+    },
+    "skins": {
+      "type": "string"
+    },
+    "sideWall": {
+      "type": "string"
+    },
+    "frontEnd": {
+      "type": "string"
+    },
+    "bumper": {
+      "type": "string"
+    },
+    "interiorLighting": {
+      "type": "string"
+    },
+    "exteriorLighting": {
+      "type": "string"
+    },
+    "mudflaps": {
+      "type": "string"
+    },
+    "panels": {
+      "type": "string"
+    },
+    "cabAccessDoor": {
+      "type": "string"
+    },
+    "cabLiner": {
+      "type": "string"
+    },
+    "rearFinish": {
+      "type": "string"
+    },
+    "liningSides": {
+      "type": "string"
+    },
+    "grabHandles": {
+      "type": "string"
+    },
+    "sidePanels": {
+      "type": "string"
+    },
+    "sideFrame": {
+      "type": "string"
+    },
+    "frontWall": {
+      "type": "string"
+    },
+    "frontACDoor": {
+      "type": "string"
+    },
+    "understructure": {
+      "type": "string"
+    },
+    "sideCurtains": {
+      "type": "string"
+    }
+  }
+}

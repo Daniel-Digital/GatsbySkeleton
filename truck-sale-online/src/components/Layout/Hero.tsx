@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useQuery } from 'react-query';
 import { graphql, useStaticQuery } from 'gatsby';
 import BackgroundImage from 'gatsby-background-image';
@@ -56,17 +56,35 @@ const Poligon = styled.div`
 
 const Hero = () => {
   const [sliderIndex, setSliderIndex] = useState(0);
+  const sliderIndexRef = useRef(sliderIndex);
+  sliderIndexRef.current = sliderIndex;
   const data = useStaticQuery<TruckHeroImageQuery>(query);
   const featuredTrucks = useQuery('featured-trucks', () =>
     HttpFetch.get({ url: '/trucks?_limit=3' }),
   );
+
+  useEffect(() => {
+    if (!featuredTrucks.data) return;
+    const intervalID = setInterval(() => {
+      let nextIndex: number;
+      if (sliderIndexRef.current + 1 >= featuredTrucks.data.length) {
+        nextIndex = 0;
+      } else {
+        nextIndex = sliderIndexRef.current + 1;
+      }
+      setSliderIndex(nextIndex);
+    }, 3000);
+    return () => {
+      clearInterval(intervalID);
+    };
+  }, [featuredTrucks.data]);
 
   const currectTruck = featuredTrucks.data && featuredTrucks.data[sliderIndex];
 
   return (
     <HeroContainer>
       {currectTruck ? (
-        <HeroImage background={getImageUrl(currectTruck.image.url)} />
+        <HeroImage background={getImageUrl(currectTruck.image?.url)} />
       ) : (
         <GatsbyHeroImage fluid={data.file.childImageSharp.fluid} />
       )}

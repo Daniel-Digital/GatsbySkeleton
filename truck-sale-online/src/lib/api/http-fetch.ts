@@ -8,7 +8,6 @@ type Config = {
 };
 
 async function apiCall(method: Methods, { url, data }: Config) {
-  console.log(`${process.env.API_URL || 'http://localhost:1337'}${url}`);
   const response = await axios({
     method,
     url: `${process.env.API_URL || 'http://localhost:1337'}${url}`,

@@ -3,6 +3,7 @@ import { graphql, Link, PageProps } from 'gatsby';
 import { TruckMakesPageQuery } from '@/generated/graphql';
 import ProductCard from '@/components/Cards/ProductCard';
 import { css } from '@emotion/core';
+import slugify from 'slugify';
 
 const TruckMakes: React.FC<PageProps<TruckMakesPageQuery>> = ({ data }) => {
   return (
@@ -30,7 +31,7 @@ const TruckMakes: React.FC<PageProps<TruckMakesPageQuery>> = ({ data }) => {
         `}
       >
         {data.allStrapiMake.nodes.map((make) => (
-          <Link to="/" key={make.id}>
+          <Link to={`/truck-makes/${slugify(make.name)}`} key={make.id}>
             <ProductCard
               fluidImage={make.image.childImageSharp.fluid}
               name={make.name}

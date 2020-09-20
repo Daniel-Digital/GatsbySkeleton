@@ -1489,6 +1489,7 @@ export type QuerySitePageArgs = {
   children?: Maybe<NodeFilterListInput>;
   internal?: Maybe<InternalFilterInput>;
   isCreatedByStatefulCreatePages?: Maybe<BooleanQueryOperatorInput>;
+  context?: Maybe<SitePageContextFilterInput>;
   pluginCreator?: Maybe<SitePluginFilterInput>;
   pluginCreatorId?: Maybe<StringQueryOperatorInput>;
   componentPath?: Maybe<StringQueryOperatorInput>;
@@ -1995,6 +1996,7 @@ export type SitePage = Node & {
   children: Array<Node>;
   internal: Internal;
   isCreatedByStatefulCreatePages?: Maybe<Scalars['Boolean']>;
+  context?: Maybe<SitePageContext>;
   pluginCreator?: Maybe<SitePlugin>;
   pluginCreatorId?: Maybe<Scalars['String']>;
   componentPath?: Maybe<Scalars['String']>;
@@ -2020,6 +2022,15 @@ export type SitePageConnectionGroupArgs = {
   skip?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
   field: SitePageFieldsEnum;
+};
+
+export type SitePageContext = {
+  __typename?: 'SitePageContext';
+  id?: Maybe<Scalars['Int']>;
+};
+
+export type SitePageContextFilterInput = {
+  id?: Maybe<IntQueryOperatorInput>;
 };
 
 export type SitePageEdge = {
@@ -2122,6 +2133,7 @@ export enum SitePageFieldsEnum {
   InternalOwner = 'internal___owner',
   InternalType = 'internal___type',
   IsCreatedByStatefulCreatePages = 'isCreatedByStatefulCreatePages',
+  ContextId = 'context___id',
   PluginCreatorId = 'pluginCreator___id',
   PluginCreatorParentId = 'pluginCreator___parent___id',
   PluginCreatorParentParentId = 'pluginCreator___parent___parent___id',
@@ -2204,6 +2216,7 @@ export type SitePageFilterInput = {
   children?: Maybe<NodeFilterListInput>;
   internal?: Maybe<InternalFilterInput>;
   isCreatedByStatefulCreatePages?: Maybe<BooleanQueryOperatorInput>;
+  context?: Maybe<SitePageContextFilterInput>;
   pluginCreator?: Maybe<SitePluginFilterInput>;
   pluginCreatorId?: Maybe<StringQueryOperatorInput>;
   componentPath?: Maybe<StringQueryOperatorInput>;
@@ -3927,4 +3940,31 @@ export type TruckMakesPageQuery = (
       )> }
     )> }
   ) }
+);
+
+export type TruckMakePageQueryVariables = Exact<{
+  id: Scalars['Int'];
+}>;
+
+
+export type TruckMakePageQuery = (
+  { __typename?: 'Query' }
+  & { strapiMake?: Maybe<(
+    { __typename?: 'StrapiMake' }
+    & Pick<StrapiMake, 'id' | 'name'>
+    & { trucks?: Maybe<Array<Maybe<(
+      { __typename?: 'StrapiMakeTrucks' }
+      & Pick<StrapiMakeTrucks, 'id' | 'model'>
+      & { image?: Maybe<(
+        { __typename?: 'File' }
+        & { childImageSharp?: Maybe<(
+          { __typename?: 'ImageSharp' }
+          & { fluid?: Maybe<(
+            { __typename?: 'ImageSharpFluid' }
+            & GatsbyImageSharpFluidFragment
+          )> }
+        )> }
+      )> }
+    )>>> }
+  )> }
 );
