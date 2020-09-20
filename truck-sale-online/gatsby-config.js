@@ -10,7 +10,7 @@ module.exports = {
             ? `https://strapi-backend-demo.herokuapp.com`
             : `http://localhost:1337`,
         queryLimit: 1000, // Default to 100
-        contentTypes: [`truck`],
+        contentTypes: [`truck`, `make`],
         //If using single types place them in this array.
         singleTypes: [`track-sale-online`],
       },

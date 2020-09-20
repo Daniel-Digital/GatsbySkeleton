@@ -101,8 +101,8 @@
       "required": false
     },
     "make": {
-      "model": "make",
-      "via": "trucks"
+      "via": "trucks",
+      "model": "make"
     }
   }
 }

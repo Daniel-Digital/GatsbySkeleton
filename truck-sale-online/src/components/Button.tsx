@@ -13,6 +13,7 @@ const ButtonContainer = styled.button`
   font-weight: 700;
   border: 0;
   outline: none;
+  cursor: pointer;
 
   :active {
     transform: translateY(1px);

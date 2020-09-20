@@ -8,7 +8,7 @@ import Footer from '@/components/Layout/Footer';
 import SEO from '@/components/Layout/SEO';
 import Hero from '@/components/Layout/Hero';
 
-const Layout: React.FC<PageProps> = ({ children }) => {
+const Layout: React.FC<PageProps> = ({ children, location }) => {
   return (
     <>
       <Global styles={resetStyles} />

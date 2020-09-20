@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useQuery } from 'react-query';
 import { graphql, useStaticQuery } from 'gatsby';
 import BackgroundImage from 'gatsby-background-image';
@@ -6,10 +6,10 @@ import BackgroundImage from 'gatsby-background-image';
 import styled from '@/styled';
 import SearchBox from '../SearchBox/SearchBox';
 import { TruckHeroImageQuery } from '@/generated/graphql';
-import { css } from '@emotion/core';
-import Button from '../Button';
 import HttpFetch from '@/lib/api/http-fetch';
 import getImageUrl from '@/lib/utils/getImageUrl';
+import HeroSliderText from './HeroSliderText';
+import { css } from '@emotion/core';
 
 const HeroContainer = styled.section`
   position: relative;
@@ -21,40 +21,28 @@ type HeroImageProps = {
   background: string;
 };
 
-const HeroImage = styled.div<HeroImageProps>`
+const imageCommon = css`
   position: absolute;
   width: 80%;
   height: 100%;
   left: 0;
   top: 0;
-  background-image: url(${(props) => props.background});
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
   background-color: rgba(33, 33, 33, 0.85);
   background-blend-mode: multiply;
   z-index: -1;
+`;
+
+const HeroImage = styled.div<HeroImageProps>`
+  ${imageCommon}
+  background-image: url(${(props) => props.background});
+
 `;
 
 const GatsbyHeroImage = styled(BackgroundImage)`
-  position: absolute;
-  width: 80%;
-  height: 100%;
-  left: 0;
-  top: 0;
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-color: rgba(33, 33, 33, 0.85);
-  background-blend-mode: multiply;
-  z-index: -1;
-`;
-
-const SliderText = styled.div`
-  position: absolute;
-  top: 45%;
-  left: 20%;
-  transform: translateY(-50%);
+  ${imageCommon}
 `;
 
 const Poligon = styled.div`
@@ -67,49 +55,31 @@ const Poligon = styled.div`
 `;
 
 const Hero = () => {
+  const [sliderIndex, setSliderIndex] = useState(0);
   const data = useStaticQuery<TruckHeroImageQuery>(query);
   const featuredTrucks = useQuery('featured-trucks', () =>
-    HttpFetch.get({ url: '/trucks' }),
+    HttpFetch.get({ url: '/trucks?_limit=3' }),
   );
+
+  const currectTruck = featuredTrucks.data && featuredTrucks.data[sliderIndex];
 
   return (
     <HeroContainer>
-      {featuredTrucks.data ? (
-        <HeroImage background={getImageUrl(featuredTrucks.data[0].image.url)} />
+      {currectTruck ? (
+        <HeroImage background={getImageUrl(currectTruck.image.url)} />
       ) : (
         <GatsbyHeroImage fluid={data.file.childImageSharp.fluid} />
       )}
       <Poligon />
-      <SliderText>
-        <h1
-          css={css`
-            line-height: 80px;
-            font-size: 60px;
-            color: white;
-          `}
-        >
-          Truck model
-        </h1>
-        <div
-          css={css`
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 20px;
-          `}
-        >
-          <h2
-            css={css`
-              font-size: 16px;
-              line-height: 26px;
-              color: white;
-            `}
-          >
-            Another info
-          </h2>
-          <Button>Do whatever now!</Button>
-        </div>
-      </SliderText>
+      {currectTruck && (
+        <HeroSliderText
+          title={`${currectTruck.modelYear || 2020} ${
+            currectTruck.make?.name
+          } ${currectTruck.model}`}
+          subtitle={''}
+          buttonText={`Explore ${currectTruck.make?.name} for Sale`}
+        />
+      )}
       <SearchBox />
     </HeroContainer>
   );
