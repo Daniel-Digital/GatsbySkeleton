@@ -14,82 +14,108 @@
       "required": true
     },
     "modelYear": {
-      "type": "string"
+      "type": "string",
+      "default": "Not in website"
     },
     "modelGVWR": {
-      "type": "string"
+      "type": "string",
+      "default": "Not in website"
     },
     "modelGCWR": {
-      "type": "string"
+      "type": "string",
+      "default": "Not in website"
     },
     "modelGAWRFront": {
-      "type": "string"
+      "type": "string",
+      "default": "Not in website"
     },
     "modelGAWRRear": {
-      "type": "string"
+      "type": "string",
+      "default": "Not in website"
     },
     "modelPayload": {
-      "type": "string"
+      "type": "string",
+      "default": "Not in website"
     },
     "modelSuspensionType": {
-      "type": "string"
+      "type": "string",
+      "default": "Not in website"
     },
     "modelSuspensionCapacity": {
-      "type": "string"
+      "type": "string",
+      "default": "Not in website"
     },
     "modelBrakeType": {
-      "type": "string"
+      "type": "string",
+      "default": "Not in website"
     },
     "modelBrakesFront": {
-      "type": "string"
+      "type": "string",
+      "default": "Not in website"
     },
     "modelBrakesRear": {
-      "type": "string"
+      "type": "string",
+      "default": "Not in website"
     },
     "modelTransmission": {
-      "type": "string"
+      "type": "string",
+      "default": "Not in website"
     },
     "modelEngine": {
-      "type": "string"
+      "type": "string",
+      "default": "Not in website"
     },
     "modelEngineDisplacement": {
-      "type": "string"
+      "type": "string",
+      "default": "Not in website"
     },
     "modelEngineHP": {
-      "type": "string"
+      "type": "string",
+      "default": "Not in website"
     },
     "modelEngineTorque": {
-      "type": "string"
+      "type": "string",
+      "default": "Not in website"
     },
     "modelBatteries": {
-      "type": "string"
+      "type": "string",
+      "default": "Not in website"
     },
     "modelFuelTankCapacity": {
-      "type": "string"
+      "type": "string",
+      "default": "Not in website"
     },
     "modelWheelbases": {
-      "type": "string"
+      "type": "string",
+      "default": "Not in website"
     },
     "limitedSlipDifferential": {
-      "type": "string"
+      "type": "string",
+      "default": "Not in website"
     },
     "modelPdfCatalogueLink": {
-      "type": "string"
+      "type": "string",
+      "default": "Not in website"
     },
     "modelCabType": {
-      "type": "string"
+      "type": "string",
+      "default": "Not in website"
     },
     "modelColors": {
-      "type": "string"
+      "type": "string",
+      "default": "Not in website"
     },
     "airCleaners": {
-      "type": "string"
+      "type": "string",
+      "default": "Not in website"
     },
     "batteryBox": {
-      "type": "string"
+      "type": "string",
+      "default": "Not in website"
     },
     "bumper": {
-      "type": "string"
+      "type": "string",
+      "default": "Not in website"
     },
     "image": {
       "model": "file",
@@ -101,8 +127,8 @@
       "required": false
     },
     "make": {
-      "via": "trucks",
-      "model": "make"
+      "model": "make",
+      "via": "trucks"
     }
   }
 }

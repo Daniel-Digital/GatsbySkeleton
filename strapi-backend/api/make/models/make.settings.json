@@ -14,8 +14,8 @@
       "required": true
     },
     "trucks": {
-      "collection": "truck",
-      "via": "make"
+      "via": "make",
+      "collection": "truck"
     },
     "image": {
       "model": "file",

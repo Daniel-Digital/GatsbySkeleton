@@ -1,7 +1,7 @@
 import React from 'react';
 import { graphql, PageProps } from 'gatsby';
 import ReactMarkdown from 'react-markdown';
-import { PrivacyPageQuery } from '@/generated/graphql';
+import { TermsOfUsePageQuery } from '@/generated/graphql';
 import { css } from '@emotion/core';
 
 const pageContent = css`
@@ -11,18 +11,18 @@ const pageContent = css`
   padding-right: 10%;
 `;
 
-const Privacy: React.FC<PageProps<PrivacyPageQuery>> = ({ data }) => (
+const TermsOfUse: React.FC<PageProps<TermsOfUsePageQuery>> = ({ data }) => (
   <section css={pageContent}>
-    <ReactMarkdown source={data.strapiTrackSaleOnline.privacyPageContent} />
+    <ReactMarkdown source={data.strapiTrackSaleOnline.termsOfUsePageContent} />
   </section>
 );
 
 export const pageQuery = graphql`
-  query PrivacyPage {
+  query TermsOfUsePage {
     strapiTrackSaleOnline {
-      privacyPageContent
+      termsOfUsePageContent
     }
   }
 `;
 
-export default Privacy;
+export default TermsOfUse;

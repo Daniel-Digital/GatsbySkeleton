@@ -18,6 +18,15 @@
       "type": "component",
       "repeatable": false,
       "component": "header.header"
+    },
+    "aboutPageContent": {
+      "type": "richtext"
+    },
+    "privacyPageContent": {
+      "type": "richtext"
+    },
+    "termsOfUsePageContent": {
+      "type": "richtext"
     }
   }
 }

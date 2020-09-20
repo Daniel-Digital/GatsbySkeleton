@@ -19,7 +19,7 @@ const TruckMake: React.FC<PageProps<TruckMakePageQuery>> = ({ data }) => {
           font-size: 50px;
         `}
       >
-        {data.strapiMake.name}
+        {data.strapiMake.name} models
       </h2>
       <ProductList>
         {data.strapiMake.trucks.map((truck) => {

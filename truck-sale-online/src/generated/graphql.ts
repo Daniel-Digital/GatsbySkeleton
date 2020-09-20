@@ -1552,6 +1552,9 @@ export type QueryStrapiTrackSaleOnlineArgs = {
   parent?: Maybe<NodeFilterInput>;
   children?: Maybe<NodeFilterListInput>;
   internal?: Maybe<InternalFilterInput>;
+  aboutPageContent?: Maybe<StringQueryOperatorInput>;
+  privacyPageContent?: Maybe<StringQueryOperatorInput>;
+  termsOfUsePageContent?: Maybe<StringQueryOperatorInput>;
   created_by?: Maybe<StrapiTrackSaleOnlineCreated_ByFilterInput>;
   updated_by?: Maybe<StrapiTrackSaleOnlineUpdated_ByFilterInput>;
   created_at?: Maybe<DateQueryOperatorInput>;
@@ -2995,6 +2998,9 @@ export type StrapiTrackSaleOnline = Node & {
   parent?: Maybe<Node>;
   children: Array<Node>;
   internal: Internal;
+  aboutPageContent?: Maybe<Scalars['String']>;
+  privacyPageContent?: Maybe<Scalars['String']>;
+  termsOfUsePageContent?: Maybe<Scalars['String']>;
   created_by?: Maybe<StrapiTrackSaleOnlineCreated_By>;
   updated_by?: Maybe<StrapiTrackSaleOnlineUpdated_By>;
   created_at?: Maybe<Scalars['Date']>;
@@ -3149,6 +3155,9 @@ export enum StrapiTrackSaleOnlineFieldsEnum {
   InternalMediaType = 'internal___mediaType',
   InternalOwner = 'internal___owner',
   InternalType = 'internal___type',
+  AboutPageContent = 'aboutPageContent',
+  PrivacyPageContent = 'privacyPageContent',
+  TermsOfUsePageContent = 'termsOfUsePageContent',
   CreatedById = 'created_by___id',
   CreatedByFirstname = 'created_by___firstname',
   CreatedByLastname = 'created_by___lastname',
@@ -3175,6 +3184,9 @@ export type StrapiTrackSaleOnlineFilterInput = {
   parent?: Maybe<NodeFilterInput>;
   children?: Maybe<NodeFilterListInput>;
   internal?: Maybe<InternalFilterInput>;
+  aboutPageContent?: Maybe<StringQueryOperatorInput>;
+  privacyPageContent?: Maybe<StringQueryOperatorInput>;
+  termsOfUsePageContent?: Maybe<StringQueryOperatorInput>;
   created_by?: Maybe<StrapiTrackSaleOnlineCreated_ByFilterInput>;
   updated_by?: Maybe<StrapiTrackSaleOnlineUpdated_ByFilterInput>;
   created_at?: Maybe<DateQueryOperatorInput>;
@@ -3918,6 +3930,39 @@ export type WorldMapImageQuery = (
   )> }
 );
 
+export type AboutPageQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type AboutPageQuery = (
+  { __typename?: 'Query' }
+  & { strapiTrackSaleOnline?: Maybe<(
+    { __typename?: 'StrapiTrackSaleOnline' }
+    & Pick<StrapiTrackSaleOnline, 'aboutPageContent'>
+  )> }
+);
+
+export type PrivacyPageQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type PrivacyPageQuery = (
+  { __typename?: 'Query' }
+  & { strapiTrackSaleOnline?: Maybe<(
+    { __typename?: 'StrapiTrackSaleOnline' }
+    & Pick<StrapiTrackSaleOnline, 'privacyPageContent'>
+  )> }
+);
+
+export type TermsOfUsePageQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type TermsOfUsePageQuery = (
+  { __typename?: 'Query' }
+  & { strapiTrackSaleOnline?: Maybe<(
+    { __typename?: 'StrapiTrackSaleOnline' }
+    & Pick<StrapiTrackSaleOnline, 'termsOfUsePageContent'>
+  )> }
+);
+
 export type TruckMakesPageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -3966,5 +4011,28 @@ export type TruckMakePageQuery = (
         )> }
       )> }
     )>>> }
+  )> }
+);
+
+export type TruckModelPageQueryVariables = Exact<{
+  id: Scalars['Int'];
+}>;
+
+
+export type TruckModelPageQuery = (
+  { __typename?: 'Query' }
+  & { strapiTruck?: Maybe<(
+    { __typename?: 'StrapiTruck' }
+    & Pick<StrapiTruck, 'id' | 'model'>
+    & { image?: Maybe<(
+      { __typename?: 'File' }
+      & { childImageSharp?: Maybe<(
+        { __typename?: 'ImageSharp' }
+        & { fluid?: Maybe<(
+          { __typename?: 'ImageSharpFluid' }
+          & GatsbyImageSharpFluidFragment
+        )> }
+      )> }
+    )> }
   )> }
 );
