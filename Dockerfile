@@ -11,10 +11,10 @@ COPY ./strapi-backend .
 
 ENV DATABASE_FILENAME=.tmp/data.db
 ENV NODE_ENV=production
-ENV PORT 80
+ENV PORT 1337
 
 RUN yarn run build
 
-EXPOSE 80
+EXPOSE 1337
 
 CMD [ "yarn run start" ]
