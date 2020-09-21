@@ -1,9 +1,10 @@
 import React from 'react';
-import { graphql, PageProps } from 'gatsby';
+import { graphql, Link, PageProps } from 'gatsby';
 import { TruckMakePageQuery } from '@/generated/graphql';
 import { css } from '@emotion/core';
 import ProductList from '@/components/ProductList/ProductList';
 import ProductCard from '@/components/Cards/ProductCard';
+import slugify from 'slugify';
 
 const TruckMake: React.FC<PageProps<TruckMakePageQuery>> = ({ data }) => {
   return (
@@ -24,12 +25,18 @@ const TruckMake: React.FC<PageProps<TruckMakePageQuery>> = ({ data }) => {
       <ProductList>
         {data.strapiMake.trucks.map((truck) => {
           return (
-            <ProductCard
-              width="30%"
-              name={truck.model}
-              fluidImage={truck.image?.childImageSharp.fluid}
+            <Link
+              to={`/truck-makes/${slugify(data.strapiMake.name)}/${truck.id}`}
+              css={css`
+                width: 30%;
+              `}
               key={truck.id}
-            />
+            >
+              <ProductCard
+                name={truck.model}
+                fluidImage={truck.image?.childImageSharp.fluid}
+              />
+            </Link>
           );
         })}
       </ProductList>

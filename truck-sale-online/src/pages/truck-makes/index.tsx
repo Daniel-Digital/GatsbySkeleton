@@ -19,7 +19,7 @@ const TruckMakes: React.FC<PageProps<TruckMakesPageQuery>> = ({ data }) => {
           font-size: 50px;
         `}
       >
-        Featured truck makes
+        Truck makes
       </h2>
       <div
         css={css`
