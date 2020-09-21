@@ -1365,12 +1365,12 @@ export type Query = {
   allSite: SiteConnection;
   imageSharp?: Maybe<ImageSharp>;
   allImageSharp: ImageSharpConnection;
+  strapiTruck?: Maybe<StrapiTruck>;
+  allStrapiTruck: StrapiTruckConnection;
   strapiTrackSaleOnline?: Maybe<StrapiTrackSaleOnline>;
   allStrapiTrackSaleOnline: StrapiTrackSaleOnlineConnection;
   strapiMake?: Maybe<StrapiMake>;
   allStrapiMake: StrapiMakeConnection;
-  strapiTruck?: Maybe<StrapiTruck>;
-  allStrapiTruck: StrapiTruckConnection;
   siteBuildMetadata?: Maybe<SiteBuildMetadata>;
   allSiteBuildMetadata: SiteBuildMetadataConnection;
   sitePlugin?: Maybe<SitePlugin>;
@@ -1547,6 +1547,56 @@ export type QueryAllImageSharpArgs = {
 };
 
 
+export type QueryStrapiTruckArgs = {
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
+  model?: Maybe<StringQueryOperatorInput>;
+  modelYear?: Maybe<DateQueryOperatorInput>;
+  modelGVWR?: Maybe<StringQueryOperatorInput>;
+  modelGCWR?: Maybe<StringQueryOperatorInput>;
+  modelGAWRFront?: Maybe<StringQueryOperatorInput>;
+  modelGAWRRear?: Maybe<StringQueryOperatorInput>;
+  modelPayload?: Maybe<StringQueryOperatorInput>;
+  modelSuspensionType?: Maybe<StringQueryOperatorInput>;
+  modelSuspensionCapacity?: Maybe<StringQueryOperatorInput>;
+  modelBrakeType?: Maybe<StringQueryOperatorInput>;
+  modelBrakesFront?: Maybe<StringQueryOperatorInput>;
+  modelBrakesRear?: Maybe<StringQueryOperatorInput>;
+  modelTransmission?: Maybe<StringQueryOperatorInput>;
+  modelEngine?: Maybe<StringQueryOperatorInput>;
+  modelEngineDisplacement?: Maybe<StringQueryOperatorInput>;
+  modelEngineHP?: Maybe<StringQueryOperatorInput>;
+  modelEngineTorque?: Maybe<StringQueryOperatorInput>;
+  modelBatteries?: Maybe<StringQueryOperatorInput>;
+  modelFuelTankCapacity?: Maybe<StringQueryOperatorInput>;
+  modelWheelbases?: Maybe<StringQueryOperatorInput>;
+  limitedSlipDifferential?: Maybe<StringQueryOperatorInput>;
+  modelPdfCatalogueLink?: Maybe<StringQueryOperatorInput>;
+  modelCabType?: Maybe<StringQueryOperatorInput>;
+  modelColors?: Maybe<StringQueryOperatorInput>;
+  airCleaners?: Maybe<StringQueryOperatorInput>;
+  batteryBox?: Maybe<StringQueryOperatorInput>;
+  bumper?: Maybe<StringQueryOperatorInput>;
+  make?: Maybe<StrapiTruckMakeFilterInput>;
+  created_by?: Maybe<StrapiTruckCreated_ByFilterInput>;
+  updated_by?: Maybe<StrapiTruckUpdated_ByFilterInput>;
+  created_at?: Maybe<DateQueryOperatorInput>;
+  updated_at?: Maybe<DateQueryOperatorInput>;
+  image?: Maybe<FileFilterInput>;
+  strapiId?: Maybe<IntQueryOperatorInput>;
+};
+
+
+export type QueryAllStrapiTruckArgs = {
+  filter?: Maybe<StrapiTruckFilterInput>;
+  sort?: Maybe<StrapiTruckSortInput>;
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+};
+
+
 export type QueryStrapiTrackSaleOnlineArgs = {
   id?: Maybe<StringQueryOperatorInput>;
   parent?: Maybe<NodeFilterInput>;
@@ -1592,30 +1642,6 @@ export type QueryStrapiMakeArgs = {
 export type QueryAllStrapiMakeArgs = {
   filter?: Maybe<StrapiMakeFilterInput>;
   sort?: Maybe<StrapiMakeSortInput>;
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-};
-
-
-export type QueryStrapiTruckArgs = {
-  id?: Maybe<StringQueryOperatorInput>;
-  parent?: Maybe<NodeFilterInput>;
-  children?: Maybe<NodeFilterListInput>;
-  internal?: Maybe<InternalFilterInput>;
-  model?: Maybe<StringQueryOperatorInput>;
-  make?: Maybe<StrapiTruckMakeFilterInput>;
-  created_by?: Maybe<StrapiTruckCreated_ByFilterInput>;
-  updated_by?: Maybe<StrapiTruckUpdated_ByFilterInput>;
-  created_at?: Maybe<DateQueryOperatorInput>;
-  updated_at?: Maybe<DateQueryOperatorInput>;
-  image?: Maybe<FileFilterInput>;
-  strapiId?: Maybe<IntQueryOperatorInput>;
-};
-
-
-export type QueryAllStrapiTruckArgs = {
-  filter?: Maybe<StrapiTruckFilterInput>;
-  sort?: Maybe<StrapiTruckSortInput>;
   skip?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
 };
@@ -2848,6 +2874,32 @@ export enum StrapiMakeFieldsEnum {
   Trucks = 'trucks',
   TrucksId = 'trucks___id',
   TrucksModel = 'trucks___model',
+  TrucksModelYear = 'trucks___modelYear',
+  TrucksModelGvwr = 'trucks___modelGVWR',
+  TrucksModelGcwr = 'trucks___modelGCWR',
+  TrucksModelGawrFront = 'trucks___modelGAWRFront',
+  TrucksModelGawrRear = 'trucks___modelGAWRRear',
+  TrucksModelPayload = 'trucks___modelPayload',
+  TrucksModelSuspensionType = 'trucks___modelSuspensionType',
+  TrucksModelSuspensionCapacity = 'trucks___modelSuspensionCapacity',
+  TrucksModelBrakeType = 'trucks___modelBrakeType',
+  TrucksModelBrakesFront = 'trucks___modelBrakesFront',
+  TrucksModelBrakesRear = 'trucks___modelBrakesRear',
+  TrucksModelTransmission = 'trucks___modelTransmission',
+  TrucksModelEngine = 'trucks___modelEngine',
+  TrucksModelEngineDisplacement = 'trucks___modelEngineDisplacement',
+  TrucksModelEngineHp = 'trucks___modelEngineHP',
+  TrucksModelEngineTorque = 'trucks___modelEngineTorque',
+  TrucksModelBatteries = 'trucks___modelBatteries',
+  TrucksModelFuelTankCapacity = 'trucks___modelFuelTankCapacity',
+  TrucksModelWheelbases = 'trucks___modelWheelbases',
+  TrucksLimitedSlipDifferential = 'trucks___limitedSlipDifferential',
+  TrucksModelPdfCatalogueLink = 'trucks___modelPdfCatalogueLink',
+  TrucksModelCabType = 'trucks___modelCabType',
+  TrucksModelColors = 'trucks___modelColors',
+  TrucksAirCleaners = 'trucks___airCleaners',
+  TrucksBatteryBox = 'trucks___batteryBox',
+  TrucksBumper = 'trucks___bumper',
   TrucksMake = 'trucks___make',
   TrucksCreatedBy = 'trucks___created_by',
   TrucksUpdatedBy = 'trucks___updated_by',
@@ -2940,12 +2992,46 @@ export type StrapiMakeTrucks = {
   __typename?: 'StrapiMakeTrucks';
   id?: Maybe<Scalars['Int']>;
   model?: Maybe<Scalars['String']>;
+  modelYear?: Maybe<Scalars['Date']>;
+  modelGVWR?: Maybe<Scalars['String']>;
+  modelGCWR?: Maybe<Scalars['String']>;
+  modelGAWRFront?: Maybe<Scalars['String']>;
+  modelGAWRRear?: Maybe<Scalars['String']>;
+  modelPayload?: Maybe<Scalars['String']>;
+  modelSuspensionType?: Maybe<Scalars['String']>;
+  modelSuspensionCapacity?: Maybe<Scalars['String']>;
+  modelBrakeType?: Maybe<Scalars['String']>;
+  modelBrakesFront?: Maybe<Scalars['String']>;
+  modelBrakesRear?: Maybe<Scalars['String']>;
+  modelTransmission?: Maybe<Scalars['String']>;
+  modelEngine?: Maybe<Scalars['String']>;
+  modelEngineDisplacement?: Maybe<Scalars['String']>;
+  modelEngineHP?: Maybe<Scalars['String']>;
+  modelEngineTorque?: Maybe<Scalars['String']>;
+  modelBatteries?: Maybe<Scalars['String']>;
+  modelFuelTankCapacity?: Maybe<Scalars['String']>;
+  modelWheelbases?: Maybe<Scalars['String']>;
+  limitedSlipDifferential?: Maybe<Scalars['String']>;
+  modelPdfCatalogueLink?: Maybe<Scalars['String']>;
+  modelCabType?: Maybe<Scalars['String']>;
+  modelColors?: Maybe<Scalars['String']>;
+  airCleaners?: Maybe<Scalars['String']>;
+  batteryBox?: Maybe<Scalars['String']>;
+  bumper?: Maybe<Scalars['String']>;
   make?: Maybe<Scalars['Int']>;
   created_by?: Maybe<Scalars['Int']>;
   updated_by?: Maybe<Scalars['Int']>;
   created_at?: Maybe<Scalars['Date']>;
   updated_at?: Maybe<Scalars['Date']>;
   image?: Maybe<File>;
+};
+
+
+export type StrapiMakeTrucksModelYearArgs = {
+  formatString?: Maybe<Scalars['String']>;
+  fromNow?: Maybe<Scalars['Boolean']>;
+  difference?: Maybe<Scalars['String']>;
+  locale?: Maybe<Scalars['String']>;
 };
 
 
@@ -2967,6 +3053,32 @@ export type StrapiMakeTrucksUpdated_AtArgs = {
 export type StrapiMakeTrucksFilterInput = {
   id?: Maybe<IntQueryOperatorInput>;
   model?: Maybe<StringQueryOperatorInput>;
+  modelYear?: Maybe<DateQueryOperatorInput>;
+  modelGVWR?: Maybe<StringQueryOperatorInput>;
+  modelGCWR?: Maybe<StringQueryOperatorInput>;
+  modelGAWRFront?: Maybe<StringQueryOperatorInput>;
+  modelGAWRRear?: Maybe<StringQueryOperatorInput>;
+  modelPayload?: Maybe<StringQueryOperatorInput>;
+  modelSuspensionType?: Maybe<StringQueryOperatorInput>;
+  modelSuspensionCapacity?: Maybe<StringQueryOperatorInput>;
+  modelBrakeType?: Maybe<StringQueryOperatorInput>;
+  modelBrakesFront?: Maybe<StringQueryOperatorInput>;
+  modelBrakesRear?: Maybe<StringQueryOperatorInput>;
+  modelTransmission?: Maybe<StringQueryOperatorInput>;
+  modelEngine?: Maybe<StringQueryOperatorInput>;
+  modelEngineDisplacement?: Maybe<StringQueryOperatorInput>;
+  modelEngineHP?: Maybe<StringQueryOperatorInput>;
+  modelEngineTorque?: Maybe<StringQueryOperatorInput>;
+  modelBatteries?: Maybe<StringQueryOperatorInput>;
+  modelFuelTankCapacity?: Maybe<StringQueryOperatorInput>;
+  modelWheelbases?: Maybe<StringQueryOperatorInput>;
+  limitedSlipDifferential?: Maybe<StringQueryOperatorInput>;
+  modelPdfCatalogueLink?: Maybe<StringQueryOperatorInput>;
+  modelCabType?: Maybe<StringQueryOperatorInput>;
+  modelColors?: Maybe<StringQueryOperatorInput>;
+  airCleaners?: Maybe<StringQueryOperatorInput>;
+  batteryBox?: Maybe<StringQueryOperatorInput>;
+  bumper?: Maybe<StringQueryOperatorInput>;
   make?: Maybe<IntQueryOperatorInput>;
   created_by?: Maybe<IntQueryOperatorInput>;
   updated_by?: Maybe<IntQueryOperatorInput>;
@@ -3287,6 +3399,32 @@ export type StrapiTruck = Node & {
   children: Array<Node>;
   internal: Internal;
   model?: Maybe<Scalars['String']>;
+  modelYear?: Maybe<Scalars['Date']>;
+  modelGVWR?: Maybe<Scalars['String']>;
+  modelGCWR?: Maybe<Scalars['String']>;
+  modelGAWRFront?: Maybe<Scalars['String']>;
+  modelGAWRRear?: Maybe<Scalars['String']>;
+  modelPayload?: Maybe<Scalars['String']>;
+  modelSuspensionType?: Maybe<Scalars['String']>;
+  modelSuspensionCapacity?: Maybe<Scalars['String']>;
+  modelBrakeType?: Maybe<Scalars['String']>;
+  modelBrakesFront?: Maybe<Scalars['String']>;
+  modelBrakesRear?: Maybe<Scalars['String']>;
+  modelTransmission?: Maybe<Scalars['String']>;
+  modelEngine?: Maybe<Scalars['String']>;
+  modelEngineDisplacement?: Maybe<Scalars['String']>;
+  modelEngineHP?: Maybe<Scalars['String']>;
+  modelEngineTorque?: Maybe<Scalars['String']>;
+  modelBatteries?: Maybe<Scalars['String']>;
+  modelFuelTankCapacity?: Maybe<Scalars['String']>;
+  modelWheelbases?: Maybe<Scalars['String']>;
+  limitedSlipDifferential?: Maybe<Scalars['String']>;
+  modelPdfCatalogueLink?: Maybe<Scalars['String']>;
+  modelCabType?: Maybe<Scalars['String']>;
+  modelColors?: Maybe<Scalars['String']>;
+  airCleaners?: Maybe<Scalars['String']>;
+  batteryBox?: Maybe<Scalars['String']>;
+  bumper?: Maybe<Scalars['String']>;
   make?: Maybe<StrapiTruckMake>;
   created_by?: Maybe<StrapiTruckCreated_By>;
   updated_by?: Maybe<StrapiTruckUpdated_By>;
@@ -3294,6 +3432,14 @@ export type StrapiTruck = Node & {
   updated_at?: Maybe<Scalars['Date']>;
   image?: Maybe<File>;
   strapiId?: Maybe<Scalars['Int']>;
+};
+
+
+export type StrapiTruckModelYearArgs = {
+  formatString?: Maybe<Scalars['String']>;
+  fromNow?: Maybe<Scalars['Boolean']>;
+  difference?: Maybe<Scalars['String']>;
+  locale?: Maybe<Scalars['String']>;
 };
 
 
@@ -3442,6 +3588,32 @@ export enum StrapiTruckFieldsEnum {
   InternalOwner = 'internal___owner',
   InternalType = 'internal___type',
   Model = 'model',
+  ModelYear = 'modelYear',
+  ModelGvwr = 'modelGVWR',
+  ModelGcwr = 'modelGCWR',
+  ModelGawrFront = 'modelGAWRFront',
+  ModelGawrRear = 'modelGAWRRear',
+  ModelPayload = 'modelPayload',
+  ModelSuspensionType = 'modelSuspensionType',
+  ModelSuspensionCapacity = 'modelSuspensionCapacity',
+  ModelBrakeType = 'modelBrakeType',
+  ModelBrakesFront = 'modelBrakesFront',
+  ModelBrakesRear = 'modelBrakesRear',
+  ModelTransmission = 'modelTransmission',
+  ModelEngine = 'modelEngine',
+  ModelEngineDisplacement = 'modelEngineDisplacement',
+  ModelEngineHp = 'modelEngineHP',
+  ModelEngineTorque = 'modelEngineTorque',
+  ModelBatteries = 'modelBatteries',
+  ModelFuelTankCapacity = 'modelFuelTankCapacity',
+  ModelWheelbases = 'modelWheelbases',
+  LimitedSlipDifferential = 'limitedSlipDifferential',
+  ModelPdfCatalogueLink = 'modelPdfCatalogueLink',
+  ModelCabType = 'modelCabType',
+  ModelColors = 'modelColors',
+  AirCleaners = 'airCleaners',
+  BatteryBox = 'batteryBox',
+  Bumper = 'bumper',
   MakeId = 'make___id',
   MakeName = 'make___name',
   MakeCreatedBy = 'make___created_by',
@@ -3654,6 +3826,32 @@ export type StrapiTruckFilterInput = {
   children?: Maybe<NodeFilterListInput>;
   internal?: Maybe<InternalFilterInput>;
   model?: Maybe<StringQueryOperatorInput>;
+  modelYear?: Maybe<DateQueryOperatorInput>;
+  modelGVWR?: Maybe<StringQueryOperatorInput>;
+  modelGCWR?: Maybe<StringQueryOperatorInput>;
+  modelGAWRFront?: Maybe<StringQueryOperatorInput>;
+  modelGAWRRear?: Maybe<StringQueryOperatorInput>;
+  modelPayload?: Maybe<StringQueryOperatorInput>;
+  modelSuspensionType?: Maybe<StringQueryOperatorInput>;
+  modelSuspensionCapacity?: Maybe<StringQueryOperatorInput>;
+  modelBrakeType?: Maybe<StringQueryOperatorInput>;
+  modelBrakesFront?: Maybe<StringQueryOperatorInput>;
+  modelBrakesRear?: Maybe<StringQueryOperatorInput>;
+  modelTransmission?: Maybe<StringQueryOperatorInput>;
+  modelEngine?: Maybe<StringQueryOperatorInput>;
+  modelEngineDisplacement?: Maybe<StringQueryOperatorInput>;
+  modelEngineHP?: Maybe<StringQueryOperatorInput>;
+  modelEngineTorque?: Maybe<StringQueryOperatorInput>;
+  modelBatteries?: Maybe<StringQueryOperatorInput>;
+  modelFuelTankCapacity?: Maybe<StringQueryOperatorInput>;
+  modelWheelbases?: Maybe<StringQueryOperatorInput>;
+  limitedSlipDifferential?: Maybe<StringQueryOperatorInput>;
+  modelPdfCatalogueLink?: Maybe<StringQueryOperatorInput>;
+  modelCabType?: Maybe<StringQueryOperatorInput>;
+  modelColors?: Maybe<StringQueryOperatorInput>;
+  airCleaners?: Maybe<StringQueryOperatorInput>;
+  batteryBox?: Maybe<StringQueryOperatorInput>;
+  bumper?: Maybe<StringQueryOperatorInput>;
   make?: Maybe<StrapiTruckMakeFilterInput>;
   created_by?: Maybe<StrapiTruckCreated_ByFilterInput>;
   updated_by?: Maybe<StrapiTruckUpdated_ByFilterInput>;
@@ -3927,7 +4125,13 @@ export type WorldMapImageQuery = (
         & GatsbyImageSharpFluidFragment
       )> }
     )> }
-  )> }
+  )>, allStrapiMake: (
+    { __typename?: 'StrapiMakeConnection' }
+    & { nodes: Array<(
+      { __typename?: 'StrapiMake' }
+      & Pick<StrapiMake, 'id' | 'name'>
+    )> }
+  ) }
 );
 
 export type AboutPageQueryVariables = Exact<{ [key: string]: never; }>;
@@ -4023,7 +4227,7 @@ export type TruckModelPageQuery = (
   { __typename?: 'Query' }
   & { strapiTruck?: Maybe<(
     { __typename?: 'StrapiTruck' }
-    & Pick<StrapiTruck, 'id' | 'model'>
+    & Pick<StrapiTruck, 'id' | 'model' | 'modelYear' | 'modelGVWR' | 'modelGCWR' | 'modelGAWRFront' | 'modelGAWRRear' | 'modelPayload' | 'modelSuspensionType' | 'modelSuspensionCapacity' | 'modelBrakeType' | 'modelBrakesFront' | 'modelBrakesRear' | 'modelTransmission' | 'modelEngine' | 'modelEngineDisplacement' | 'modelEngineHP' | 'modelEngineTorque' | 'modelBatteries' | 'modelFuelTankCapacity' | 'modelWheelbases' | 'limitedSlipDifferential' | 'modelPdfCatalogueLink' | 'modelCabType' | 'modelColors' | 'batteryBox' | 'bumper'>
     & { image?: Maybe<(
       { __typename?: 'File' }
       & { childImageSharp?: Maybe<(

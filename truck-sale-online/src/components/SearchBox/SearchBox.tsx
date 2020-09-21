@@ -10,6 +10,10 @@ import Search from './Search';
 const SearchBox = () => {
   const data = useStaticQuery<WorldMapImageQuery>(query);
 
+  const suggestions = data.allStrapiMake.nodes.map((node) => ({
+    name: node.name,
+  }));
+
   return (
     <S.SearchBox>
       <Image
@@ -46,7 +50,10 @@ const SearchBox = () => {
       >
         Search for your favourite truck
       </h3>
-      <Search />
+      <Search
+        placeholder="Type a truck manufacturer"
+        suggestions={suggestions}
+      />
     </S.SearchBox>
   );
 };
@@ -58,6 +65,12 @@ const query = graphql`
         fluid {
           ...GatsbyImageSharpFluid
         }
+      }
+    }
+    allStrapiMake {
+      nodes {
+        id
+        name
       }
     }
   }
