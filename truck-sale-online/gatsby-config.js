@@ -8,7 +8,7 @@ module.exports = {
         apiURL:
           process.env.NODE_ENV === 'production'
             ? `https://strapi-backend-demo.herokuapp.com`
-            : `http://localhost:1337`,
+            : `https://strapi-backend-demo.herokuapp.com`,
         queryLimit: 1000, // Default to 100
         contentTypes: [`truck`, `make`],
         //If using single types place them in this array.

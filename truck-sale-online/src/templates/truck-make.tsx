@@ -5,6 +5,7 @@ import { css } from '@emotion/core';
 import ProductList from '@/components/ProductList/ProductList';
 import ProductCard from '@/components/Cards/ProductCard';
 import slugify from 'slugify';
+import getImageUrl from '@/lib/utils/getImageUrl';
 
 const TruckMake: React.FC<PageProps<TruckMakePageQuery>> = ({ data }) => {
   return (
@@ -34,7 +35,7 @@ const TruckMake: React.FC<PageProps<TruckMakePageQuery>> = ({ data }) => {
             >
               <ProductCard
                 name={truck.model}
-                fluidImage={truck.image?.childImageSharp.fluid}
+                imageSrc={getImageUrl(truck.image.publicURL)}
               />
             </Link>
           );
@@ -53,11 +54,7 @@ export const pageQuery = graphql`
         id
         model
         image {
-          childImageSharp {
-            fluid {
-              ...GatsbyImageSharpFluid
-            }
-          }
+          publicURL
         }
       }
     }

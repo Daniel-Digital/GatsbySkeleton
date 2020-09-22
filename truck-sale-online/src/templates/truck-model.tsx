@@ -1,11 +1,11 @@
 import React from 'react';
 import { graphql, PageProps } from 'gatsby';
-import Image from 'gatsby-image';
 import { TruckModelPageQuery } from '@/generated/graphql';
 import TruckModelDetails from '@/components/TruckModelDetails/TruckModelDetails';
 import { css } from '@emotion/core';
 import styled from '@/styled';
 import { TruckModelDataProvider } from '@/contexts/TruckModelDataContext';
+import getImageUrl from '@/lib/utils/getImageUrl';
 
 const Container = styled.section`
   margin-top: 60px;
@@ -31,8 +31,9 @@ const TruckModel: React.FC<PageProps<TruckModelPageQuery>> = ({ data }) => {
           display: flex;
         `}
       >
-        <Image
-          fluid={data.strapiTruck.image.childImageSharp.fluid}
+        <img
+          src={getImageUrl(data.strapiTruck.image.publicURL)}
+          alt=""
           css={css`
             flex: 1;
             max-width: 30vw;
@@ -52,11 +53,7 @@ export const pageQuery = graphql`
       id
       model
       image {
-        childImageSharp {
-          fluid {
-            ...GatsbyImageSharpFluid
-          }
-        }
+        publicURL
       }
 
       modelYear

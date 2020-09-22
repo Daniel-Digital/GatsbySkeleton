@@ -4,6 +4,7 @@ import { TruckMakesPageQuery } from '@/generated/graphql';
 import ProductCard from '@/components/Cards/ProductCard';
 import { css } from '@emotion/core';
 import slugify from 'slugify';
+import getImageUrl from '@/lib/utils/getImageUrl';
 
 const TruckMakes: React.FC<PageProps<TruckMakesPageQuery>> = ({ data }) => {
   return (
@@ -33,7 +34,7 @@ const TruckMakes: React.FC<PageProps<TruckMakesPageQuery>> = ({ data }) => {
         {data.allStrapiMake.nodes.map((make) => (
           <Link to={`/truck-makes/${slugify(make.name)}`} key={make.id}>
             <ProductCard
-              fluidImage={make.image.childImageSharp.fluid}
+              imageSrc={getImageUrl(make.image.publicURL)}
               name={make.name}
             />
           </Link>
@@ -50,11 +51,7 @@ export const pageQuery = graphql`
         id
         name
         image {
-          childImageSharp {
-            fluid {
-              ...GatsbyImageSharpFluid
-            }
-          }
+          publicURL
         }
       }
     }

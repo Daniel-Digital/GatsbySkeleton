@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from '@/styled';
-import Image from 'gatsby-image';
 import { FluidObject } from 'gatsby-image';
 import { css } from '@emotion/core';
 
@@ -16,14 +15,16 @@ const Container = styled.div<ContainerProps>`
 
 type Props = {
   name: string;
-  fluidImage: FluidObject;
+  fluidImage?: FluidObject;
+  imageSrc: string;
 } & ContainerProps;
 
-const ProductCard: React.FC<Props> = ({ name, fluidImage, width }) => {
+const ProductCard: React.FC<Props> = ({ name, imageSrc, width }) => {
   return (
     <Container width={width}>
-      <Image
-        fluid={fluidImage}
+      <img
+        src={imageSrc}
+        alt=""
         css={css`
           width: 100%;
           height: 280px;
