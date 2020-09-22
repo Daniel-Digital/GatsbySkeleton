@@ -10,6 +10,7 @@ import getImageUrl from '@/lib/utils/getImageUrl';
 const Container = styled.section`
   margin-top: 60px;
   margin-bottom: 60px;
+
   padding-left: 10%;
   padding-right: 10%;
 `;
@@ -55,7 +56,6 @@ export const pageQuery = graphql`
       image {
         publicURL
       }
-
       modelYear
       modelGVWR
       modelGCWR
