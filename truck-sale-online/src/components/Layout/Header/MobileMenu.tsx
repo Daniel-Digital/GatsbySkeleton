@@ -2,12 +2,14 @@ import React from 'react';
 import { css } from '@emotion/core';
 import { useTransition, animated, config } from 'react-spring';
 import styled from '@/styled';
+import MobileNavigation from './MobileNavigation';
 
 type Props = {
   show: boolean;
 };
 
 const Container = styled.div`
+  position: relative;
   height: 100%;
   background-color: ${(props) => props.theme.colors.secondary};
   z-index: 1001;
@@ -34,7 +36,9 @@ const MobileMenu: React.FC<Props> = ({ show }) => {
         ({ item, key, props }) =>
           item && (
             <animated.div key={key} style={props}>
-              <Container></Container>
+              <Container>
+                <MobileNavigation />
+              </Container>
             </animated.div>
           ),
       )}

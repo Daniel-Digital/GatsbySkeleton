@@ -6,6 +6,7 @@ import ProductList from '@/components/ProductList/ProductList';
 import ProductCard from '@/components/Cards/ProductCard';
 import slugify from 'slugify';
 import getImageUrl from '@/lib/utils/getImageUrl';
+import getTruckTitle from '@/lib/utils/getTruckTitle';
 
 const TruckMake: React.FC<PageProps<TruckMakePageQuery>> = ({ data }) => {
   return (
@@ -34,8 +35,14 @@ const TruckMake: React.FC<PageProps<TruckMakePageQuery>> = ({ data }) => {
               key={truck.id}
             >
               <ProductCard
-                name={truck.model}
-                imageSrc={getImageUrl(truck.image.publicURL)}
+                name={getTruckTitle(truck, data.strapiMake.name)}
+                imageSrc={getImageUrl(truck.image?.publicURL)}
+                viewProductLink={`/truck-makes/${slugify(
+                  data.strapiMake.name,
+                )}/${truck.id}`}
+                getAQuoteLink={`/truck-makes/${slugify(data.strapiMake.name)}/${
+                  truck.id
+                }#get-a-quote`}
               />
             </Link>
           );

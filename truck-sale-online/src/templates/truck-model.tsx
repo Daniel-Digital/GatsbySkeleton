@@ -33,7 +33,7 @@ const TruckModel: React.FC<PageProps<TruckModelPageQuery>> = ({ data }) => {
         `}
       >
         <img
-          src={getImageUrl(data.strapiTruck.image.publicURL)}
+          src={getImageUrl(data.strapiTruck.image?.publicURL)}
           alt=""
           css={css`
             flex: 1;
@@ -56,6 +56,11 @@ export const pageQuery = graphql`
       image {
         publicURL
       }
+      make {
+        id
+        name
+      }
+
       modelYear
       modelGVWR
       modelGCWR

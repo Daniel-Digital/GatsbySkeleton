@@ -21,6 +21,7 @@ const HeaderContainer = styled.div`
 `;
 
 const HamburgerWrapper = styled.div`
+  z-index: 99999;
   ${mediaQueries.isTablet} {
     display: none;
   }

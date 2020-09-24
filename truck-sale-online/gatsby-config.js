@@ -1,4 +1,4 @@
-const path = require('path');
+const path = require(`path`);
 
 module.exports = {
   plugins: [
@@ -6,11 +6,18 @@ module.exports = {
       resolve: `gatsby-source-strapi`,
       options: {
         apiURL:
-          process.env.NODE_ENV === 'production'
+          process.env.NODE_ENV === `production`
             ? `https://strapi-backend-demo.herokuapp.com`
-            : `https://strapi-backend-demo.herokuapp.com`,
+            : `http://localhost:1337`,
         queryLimit: 1000, // Default to 100
-        contentTypes: [`truck`, `make`],
+        contentTypes: [
+          `truck`,
+          `make`,
+          `body`,
+          `body-type`,
+          `upfit`,
+          `accessory`,
+        ],
         //If using single types place them in this array.
         singleTypes: [`track-sale-online`],
       },

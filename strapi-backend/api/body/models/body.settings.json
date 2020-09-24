@@ -17,10 +17,6 @@
       "type": "string",
       "default": "Not in website"
     },
-    "type": {
-      "type": "string",
-      "default": "Not in website"
-    },
     "model": {
       "type": "string",
       "default": "Not in website"
@@ -128,6 +124,19 @@
     "sideCurtains": {
       "type": "string",
       "default": "Not in website"
+    },
+    "image": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "type": {
+      "model": "body-type",
+      "via": "bodies"
     }
   }
 }

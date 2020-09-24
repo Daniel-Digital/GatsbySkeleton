@@ -11,6 +11,7 @@ import getImageUrl from '@/lib/utils/getImageUrl';
 import HeroSliderText from './HeroSliderText';
 import { css } from '@emotion/core';
 import slugify from 'slugify';
+import getTruckTitle from '@/lib/utils/getTruckTitle';
 
 const HeroContainer = styled.section`
   position: relative;
@@ -92,9 +93,7 @@ const Hero = () => {
       <Poligon />
       {currectTruck && (
         <HeroSliderText
-          title={`${currectTruck.modelYear || 2020} ${
-            currectTruck.make?.name
-          } ${currectTruck.model}`}
+          title={getTruckTitle(currectTruck)}
           subtitle={''}
           buttonText={`Explore ${currectTruck.make?.name} for Sale`}
           buttonLink={`/truck-makes/${slugify(currectTruck.make?.name)}`}

@@ -1,12 +1,12 @@
 import React from 'react';
 import { graphql, Link, PageProps } from 'gatsby';
-import { TruckMakesPageQuery } from '@/generated/graphql';
+import { TruckBodiesPageQuery } from '@/generated/graphql';
 import ProductCard from '@/components/Cards/ProductCard';
 import { css } from '@emotion/core';
 import slugify from 'slugify';
 import getImageUrl from '@/lib/utils/getImageUrl';
 
-const TruckMakes: React.FC<PageProps<TruckMakesPageQuery>> = ({ data }) => {
+const Bodies: React.FC<PageProps<TruckBodiesPageQuery>> = ({ data }) => {
   return (
     <section
       css={css`
@@ -20,7 +20,7 @@ const TruckMakes: React.FC<PageProps<TruckMakesPageQuery>> = ({ data }) => {
           font-size: 50px;
         `}
       >
-        Truck makes
+        Truck Bodies
       </h2>
       <div
         css={css`
@@ -31,13 +31,13 @@ const TruckMakes: React.FC<PageProps<TruckMakesPageQuery>> = ({ data }) => {
           }
         `}
       >
-        {data.allStrapiMake.nodes.map((make) => (
-          <Link to={`/truck-makes/${slugify(make.name)}`} key={make.id}>
+        {data.allStrapiBody.nodes.map((body) => (
+          <Link to={`/truck-bodies/${body.id}`} key={body.id}>
             <ProductCard
-              imageSrc={getImageUrl(make.image.publicURL)}
-              name={make.name}
-              viewProductLink={`/truck-makes/${slugify(make.name)}`}
-              getAQuoteLink={`/truck-makes/${slugify(make.name)}`}
+              imageSrc={getImageUrl(body.image.publicURL)}
+              name={body.model}
+              viewProductLink={`/truck-bodies/${body.id}}`}
+              getAQuoteLink={`/truck-bodies/${body.id}}`}
             />
           </Link>
         ))}
@@ -47,11 +47,11 @@ const TruckMakes: React.FC<PageProps<TruckMakesPageQuery>> = ({ data }) => {
 };
 
 export const pageQuery = graphql`
-  query TruckMakesPage {
-    allStrapiMake {
+  query TruckBodiesPage {
+    allStrapiBody {
       nodes {
-        id
-        name
+        id: strapiId
+        model
         image {
           publicURL
         }
@@ -60,4 +60,4 @@ export const pageQuery = graphql`
   }
 `;
 
-export default TruckMakes;
+export default Bodies;

@@ -1367,6 +1367,12 @@ export type Query = {
   allImageSharp: ImageSharpConnection;
   strapiTrackSaleOnline?: Maybe<StrapiTrackSaleOnline>;
   allStrapiTrackSaleOnline: StrapiTrackSaleOnlineConnection;
+  strapiAccessory?: Maybe<StrapiAccessory>;
+  allStrapiAccessory: StrapiAccessoryConnection;
+  strapiUpfit?: Maybe<StrapiUpfit>;
+  allStrapiUpfit: StrapiUpfitConnection;
+  strapiBody?: Maybe<StrapiBody>;
+  allStrapiBody: StrapiBodyConnection;
   strapiMake?: Maybe<StrapiMake>;
   allStrapiMake: StrapiMakeConnection;
   strapiTruck?: Maybe<StrapiTruck>;
@@ -1552,13 +1558,13 @@ export type QueryStrapiTrackSaleOnlineArgs = {
   parent?: Maybe<NodeFilterInput>;
   children?: Maybe<NodeFilterListInput>;
   internal?: Maybe<InternalFilterInput>;
+  aboutPageContent?: Maybe<StringQueryOperatorInput>;
+  privacyPageContent?: Maybe<StringQueryOperatorInput>;
+  termsOfUsePageContent?: Maybe<StringQueryOperatorInput>;
   created_by?: Maybe<StrapiTrackSaleOnlineCreated_ByFilterInput>;
   updated_by?: Maybe<StrapiTrackSaleOnlineUpdated_ByFilterInput>;
   created_at?: Maybe<DateQueryOperatorInput>;
   updated_at?: Maybe<DateQueryOperatorInput>;
-  aboutPageContent?: Maybe<StringQueryOperatorInput>;
-  privacyPageContent?: Maybe<StringQueryOperatorInput>;
-  termsOfUsePageContent?: Maybe<StringQueryOperatorInput>;
   footer?: Maybe<StrapiTrackSaleOnlineFooterFilterInput>;
   header?: Maybe<StrapiTrackSaleOnlineHeaderFilterInput>;
   strapiId?: Maybe<IntQueryOperatorInput>;
@@ -1568,6 +1574,102 @@ export type QueryStrapiTrackSaleOnlineArgs = {
 export type QueryAllStrapiTrackSaleOnlineArgs = {
   filter?: Maybe<StrapiTrackSaleOnlineFilterInput>;
   sort?: Maybe<StrapiTrackSaleOnlineSortInput>;
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+};
+
+
+export type QueryStrapiAccessoryArgs = {
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
+  placeholder?: Maybe<StringQueryOperatorInput>;
+  created_by?: Maybe<StrapiAccessoryCreated_ByFilterInput>;
+  updated_by?: Maybe<StrapiAccessoryUpdated_ByFilterInput>;
+  created_at?: Maybe<DateQueryOperatorInput>;
+  updated_at?: Maybe<DateQueryOperatorInput>;
+  strapiId?: Maybe<IntQueryOperatorInput>;
+};
+
+
+export type QueryAllStrapiAccessoryArgs = {
+  filter?: Maybe<StrapiAccessoryFilterInput>;
+  sort?: Maybe<StrapiAccessorySortInput>;
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+};
+
+
+export type QueryStrapiUpfitArgs = {
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
+  placeholder?: Maybe<StringQueryOperatorInput>;
+  created_by?: Maybe<StrapiUpfitCreated_ByFilterInput>;
+  updated_by?: Maybe<StrapiUpfitUpdated_ByFilterInput>;
+  created_at?: Maybe<DateQueryOperatorInput>;
+  updated_at?: Maybe<DateQueryOperatorInput>;
+  strapiId?: Maybe<IntQueryOperatorInput>;
+};
+
+
+export type QueryAllStrapiUpfitArgs = {
+  filter?: Maybe<StrapiUpfitFilterInput>;
+  sort?: Maybe<StrapiUpfitSortInput>;
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+};
+
+
+export type QueryStrapiBodyArgs = {
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
+  company?: Maybe<StringQueryOperatorInput>;
+  pdfLink?: Maybe<StringQueryOperatorInput>;
+  type?: Maybe<StringQueryOperatorInput>;
+  model?: Maybe<StringQueryOperatorInput>;
+  subframe?: Maybe<StringQueryOperatorInput>;
+  floor?: Maybe<StringQueryOperatorInput>;
+  threshold?: Maybe<StringQueryOperatorInput>;
+  mounting?: Maybe<StringQueryOperatorInput>;
+  rearDoor?: Maybe<StringQueryOperatorInput>;
+  rearFrame?: Maybe<StringQueryOperatorInput>;
+  roof?: Maybe<StringQueryOperatorInput>;
+  skins?: Maybe<StringQueryOperatorInput>;
+  sideWall?: Maybe<StringQueryOperatorInput>;
+  frontEnd?: Maybe<StringQueryOperatorInput>;
+  bumper?: Maybe<StringQueryOperatorInput>;
+  interiorLighting?: Maybe<StringQueryOperatorInput>;
+  exteriorLighting?: Maybe<StringQueryOperatorInput>;
+  mudflaps?: Maybe<StringQueryOperatorInput>;
+  panels?: Maybe<StringQueryOperatorInput>;
+  cabAccessDoor?: Maybe<StringQueryOperatorInput>;
+  cabLiner?: Maybe<StringQueryOperatorInput>;
+  rearFinish?: Maybe<StringQueryOperatorInput>;
+  liningSides?: Maybe<StringQueryOperatorInput>;
+  grabHandles?: Maybe<StringQueryOperatorInput>;
+  sidePanels?: Maybe<StringQueryOperatorInput>;
+  sideFrame?: Maybe<StringQueryOperatorInput>;
+  frontWall?: Maybe<StringQueryOperatorInput>;
+  frontACDoor?: Maybe<StringQueryOperatorInput>;
+  understructure?: Maybe<StringQueryOperatorInput>;
+  sideCurtains?: Maybe<StringQueryOperatorInput>;
+  created_by?: Maybe<StrapiBodyCreated_ByFilterInput>;
+  updated_by?: Maybe<StrapiBodyUpdated_ByFilterInput>;
+  created_at?: Maybe<DateQueryOperatorInput>;
+  updated_at?: Maybe<DateQueryOperatorInput>;
+  image?: Maybe<FileFilterInput>;
+  strapiId?: Maybe<IntQueryOperatorInput>;
+};
+
+
+export type QueryAllStrapiBodyArgs = {
+  filter?: Maybe<StrapiBodyFilterInput>;
+  sort?: Maybe<StrapiBodySortInput>;
   skip?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
 };
@@ -1603,7 +1705,6 @@ export type QueryStrapiTruckArgs = {
   children?: Maybe<NodeFilterListInput>;
   internal?: Maybe<InternalFilterInput>;
   model?: Maybe<StringQueryOperatorInput>;
-  make?: Maybe<StrapiTruckMakeFilterInput>;
   modelYear?: Maybe<StringQueryOperatorInput>;
   modelGVWR?: Maybe<StringQueryOperatorInput>;
   modelGCWR?: Maybe<StringQueryOperatorInput>;
@@ -1630,6 +1731,7 @@ export type QueryStrapiTruckArgs = {
   airCleaners?: Maybe<StringQueryOperatorInput>;
   batteryBox?: Maybe<StringQueryOperatorInput>;
   bumper?: Maybe<StringQueryOperatorInput>;
+  make?: Maybe<StrapiTruckMakeFilterInput>;
   created_by?: Maybe<StrapiTruckCreated_ByFilterInput>;
   updated_by?: Maybe<StrapiTruckUpdated_ByFilterInput>;
   created_at?: Maybe<DateQueryOperatorInput>;
@@ -2562,6 +2664,658 @@ export enum SortOrderEnum {
   Desc = 'DESC'
 }
 
+export type StrapiAccessory = Node & {
+  __typename?: 'StrapiAccessory';
+  id: Scalars['ID'];
+  parent?: Maybe<Node>;
+  children: Array<Node>;
+  internal: Internal;
+  placeholder?: Maybe<Scalars['String']>;
+  created_by?: Maybe<StrapiAccessoryCreated_By>;
+  updated_by?: Maybe<StrapiAccessoryUpdated_By>;
+  created_at?: Maybe<Scalars['Date']>;
+  updated_at?: Maybe<Scalars['Date']>;
+  strapiId?: Maybe<Scalars['Int']>;
+};
+
+
+export type StrapiAccessoryCreated_AtArgs = {
+  formatString?: Maybe<Scalars['String']>;
+  fromNow?: Maybe<Scalars['Boolean']>;
+  difference?: Maybe<Scalars['String']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+export type StrapiAccessoryUpdated_AtArgs = {
+  formatString?: Maybe<Scalars['String']>;
+  fromNow?: Maybe<Scalars['Boolean']>;
+  difference?: Maybe<Scalars['String']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+export type StrapiAccessoryConnection = {
+  __typename?: 'StrapiAccessoryConnection';
+  totalCount: Scalars['Int'];
+  edges: Array<StrapiAccessoryEdge>;
+  nodes: Array<StrapiAccessory>;
+  pageInfo: PageInfo;
+  distinct: Array<Scalars['String']>;
+  group: Array<StrapiAccessoryGroupConnection>;
+};
+
+
+export type StrapiAccessoryConnectionDistinctArgs = {
+  field: StrapiAccessoryFieldsEnum;
+};
+
+
+export type StrapiAccessoryConnectionGroupArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  field: StrapiAccessoryFieldsEnum;
+};
+
+export type StrapiAccessoryCreated_By = {
+  __typename?: 'StrapiAccessoryCreated_by';
+  id?: Maybe<Scalars['Int']>;
+  firstname?: Maybe<Scalars['String']>;
+  lastname?: Maybe<Scalars['String']>;
+};
+
+export type StrapiAccessoryCreated_ByFilterInput = {
+  id?: Maybe<IntQueryOperatorInput>;
+  firstname?: Maybe<StringQueryOperatorInput>;
+  lastname?: Maybe<StringQueryOperatorInput>;
+};
+
+export type StrapiAccessoryEdge = {
+  __typename?: 'StrapiAccessoryEdge';
+  next?: Maybe<StrapiAccessory>;
+  node: StrapiAccessory;
+  previous?: Maybe<StrapiAccessory>;
+};
+
+export enum StrapiAccessoryFieldsEnum {
+  Id = 'id',
+  ParentId = 'parent___id',
+  ParentParentId = 'parent___parent___id',
+  ParentParentParentId = 'parent___parent___parent___id',
+  ParentParentParentChildren = 'parent___parent___parent___children',
+  ParentParentChildren = 'parent___parent___children',
+  ParentParentChildrenId = 'parent___parent___children___id',
+  ParentParentChildrenChildren = 'parent___parent___children___children',
+  ParentParentInternalContent = 'parent___parent___internal___content',
+  ParentParentInternalContentDigest = 'parent___parent___internal___contentDigest',
+  ParentParentInternalDescription = 'parent___parent___internal___description',
+  ParentParentInternalFieldOwners = 'parent___parent___internal___fieldOwners',
+  ParentParentInternalIgnoreType = 'parent___parent___internal___ignoreType',
+  ParentParentInternalMediaType = 'parent___parent___internal___mediaType',
+  ParentParentInternalOwner = 'parent___parent___internal___owner',
+  ParentParentInternalType = 'parent___parent___internal___type',
+  ParentChildren = 'parent___children',
+  ParentChildrenId = 'parent___children___id',
+  ParentChildrenParentId = 'parent___children___parent___id',
+  ParentChildrenParentChildren = 'parent___children___parent___children',
+  ParentChildrenChildren = 'parent___children___children',
+  ParentChildrenChildrenId = 'parent___children___children___id',
+  ParentChildrenChildrenChildren = 'parent___children___children___children',
+  ParentChildrenInternalContent = 'parent___children___internal___content',
+  ParentChildrenInternalContentDigest = 'parent___children___internal___contentDigest',
+  ParentChildrenInternalDescription = 'parent___children___internal___description',
+  ParentChildrenInternalFieldOwners = 'parent___children___internal___fieldOwners',
+  ParentChildrenInternalIgnoreType = 'parent___children___internal___ignoreType',
+  ParentChildrenInternalMediaType = 'parent___children___internal___mediaType',
+  ParentChildrenInternalOwner = 'parent___children___internal___owner',
+  ParentChildrenInternalType = 'parent___children___internal___type',
+  ParentInternalContent = 'parent___internal___content',
+  ParentInternalContentDigest = 'parent___internal___contentDigest',
+  ParentInternalDescription = 'parent___internal___description',
+  ParentInternalFieldOwners = 'parent___internal___fieldOwners',
+  ParentInternalIgnoreType = 'parent___internal___ignoreType',
+  ParentInternalMediaType = 'parent___internal___mediaType',
+  ParentInternalOwner = 'parent___internal___owner',
+  ParentInternalType = 'parent___internal___type',
+  Children = 'children',
+  ChildrenId = 'children___id',
+  ChildrenParentId = 'children___parent___id',
+  ChildrenParentParentId = 'children___parent___parent___id',
+  ChildrenParentParentChildren = 'children___parent___parent___children',
+  ChildrenParentChildren = 'children___parent___children',
+  ChildrenParentChildrenId = 'children___parent___children___id',
+  ChildrenParentChildrenChildren = 'children___parent___children___children',
+  ChildrenParentInternalContent = 'children___parent___internal___content',
+  ChildrenParentInternalContentDigest = 'children___parent___internal___contentDigest',
+  ChildrenParentInternalDescription = 'children___parent___internal___description',
+  ChildrenParentInternalFieldOwners = 'children___parent___internal___fieldOwners',
+  ChildrenParentInternalIgnoreType = 'children___parent___internal___ignoreType',
+  ChildrenParentInternalMediaType = 'children___parent___internal___mediaType',
+  ChildrenParentInternalOwner = 'children___parent___internal___owner',
+  ChildrenParentInternalType = 'children___parent___internal___type',
+  ChildrenChildren = 'children___children',
+  ChildrenChildrenId = 'children___children___id',
+  ChildrenChildrenParentId = 'children___children___parent___id',
+  ChildrenChildrenParentChildren = 'children___children___parent___children',
+  ChildrenChildrenChildren = 'children___children___children',
+  ChildrenChildrenChildrenId = 'children___children___children___id',
+  ChildrenChildrenChildrenChildren = 'children___children___children___children',
+  ChildrenChildrenInternalContent = 'children___children___internal___content',
+  ChildrenChildrenInternalContentDigest = 'children___children___internal___contentDigest',
+  ChildrenChildrenInternalDescription = 'children___children___internal___description',
+  ChildrenChildrenInternalFieldOwners = 'children___children___internal___fieldOwners',
+  ChildrenChildrenInternalIgnoreType = 'children___children___internal___ignoreType',
+  ChildrenChildrenInternalMediaType = 'children___children___internal___mediaType',
+  ChildrenChildrenInternalOwner = 'children___children___internal___owner',
+  ChildrenChildrenInternalType = 'children___children___internal___type',
+  ChildrenInternalContent = 'children___internal___content',
+  ChildrenInternalContentDigest = 'children___internal___contentDigest',
+  ChildrenInternalDescription = 'children___internal___description',
+  ChildrenInternalFieldOwners = 'children___internal___fieldOwners',
+  ChildrenInternalIgnoreType = 'children___internal___ignoreType',
+  ChildrenInternalMediaType = 'children___internal___mediaType',
+  ChildrenInternalOwner = 'children___internal___owner',
+  ChildrenInternalType = 'children___internal___type',
+  InternalContent = 'internal___content',
+  InternalContentDigest = 'internal___contentDigest',
+  InternalDescription = 'internal___description',
+  InternalFieldOwners = 'internal___fieldOwners',
+  InternalIgnoreType = 'internal___ignoreType',
+  InternalMediaType = 'internal___mediaType',
+  InternalOwner = 'internal___owner',
+  InternalType = 'internal___type',
+  Placeholder = 'placeholder',
+  CreatedById = 'created_by___id',
+  CreatedByFirstname = 'created_by___firstname',
+  CreatedByLastname = 'created_by___lastname',
+  UpdatedById = 'updated_by___id',
+  UpdatedByFirstname = 'updated_by___firstname',
+  UpdatedByLastname = 'updated_by___lastname',
+  CreatedAt = 'created_at',
+  UpdatedAt = 'updated_at',
+  StrapiId = 'strapiId'
+}
+
+export type StrapiAccessoryFilterInput = {
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
+  placeholder?: Maybe<StringQueryOperatorInput>;
+  created_by?: Maybe<StrapiAccessoryCreated_ByFilterInput>;
+  updated_by?: Maybe<StrapiAccessoryUpdated_ByFilterInput>;
+  created_at?: Maybe<DateQueryOperatorInput>;
+  updated_at?: Maybe<DateQueryOperatorInput>;
+  strapiId?: Maybe<IntQueryOperatorInput>;
+};
+
+export type StrapiAccessoryGroupConnection = {
+  __typename?: 'StrapiAccessoryGroupConnection';
+  totalCount: Scalars['Int'];
+  edges: Array<StrapiAccessoryEdge>;
+  nodes: Array<StrapiAccessory>;
+  pageInfo: PageInfo;
+  field: Scalars['String'];
+  fieldValue?: Maybe<Scalars['String']>;
+};
+
+export type StrapiAccessorySortInput = {
+  fields?: Maybe<Array<Maybe<StrapiAccessoryFieldsEnum>>>;
+  order?: Maybe<Array<Maybe<SortOrderEnum>>>;
+};
+
+export type StrapiAccessoryUpdated_By = {
+  __typename?: 'StrapiAccessoryUpdated_by';
+  id?: Maybe<Scalars['Int']>;
+  firstname?: Maybe<Scalars['String']>;
+  lastname?: Maybe<Scalars['String']>;
+};
+
+export type StrapiAccessoryUpdated_ByFilterInput = {
+  id?: Maybe<IntQueryOperatorInput>;
+  firstname?: Maybe<StringQueryOperatorInput>;
+  lastname?: Maybe<StringQueryOperatorInput>;
+};
+
+export type StrapiBody = Node & {
+  __typename?: 'StrapiBody';
+  id: Scalars['ID'];
+  parent?: Maybe<Node>;
+  children: Array<Node>;
+  internal: Internal;
+  company?: Maybe<Scalars['String']>;
+  pdfLink?: Maybe<Scalars['String']>;
+  type?: Maybe<Scalars['String']>;
+  model?: Maybe<Scalars['String']>;
+  subframe?: Maybe<Scalars['String']>;
+  floor?: Maybe<Scalars['String']>;
+  threshold?: Maybe<Scalars['String']>;
+  mounting?: Maybe<Scalars['String']>;
+  rearDoor?: Maybe<Scalars['String']>;
+  rearFrame?: Maybe<Scalars['String']>;
+  roof?: Maybe<Scalars['String']>;
+  skins?: Maybe<Scalars['String']>;
+  sideWall?: Maybe<Scalars['String']>;
+  frontEnd?: Maybe<Scalars['String']>;
+  bumper?: Maybe<Scalars['String']>;
+  interiorLighting?: Maybe<Scalars['String']>;
+  exteriorLighting?: Maybe<Scalars['String']>;
+  mudflaps?: Maybe<Scalars['String']>;
+  panels?: Maybe<Scalars['String']>;
+  cabAccessDoor?: Maybe<Scalars['String']>;
+  cabLiner?: Maybe<Scalars['String']>;
+  rearFinish?: Maybe<Scalars['String']>;
+  liningSides?: Maybe<Scalars['String']>;
+  grabHandles?: Maybe<Scalars['String']>;
+  sidePanels?: Maybe<Scalars['String']>;
+  sideFrame?: Maybe<Scalars['String']>;
+  frontWall?: Maybe<Scalars['String']>;
+  frontACDoor?: Maybe<Scalars['String']>;
+  understructure?: Maybe<Scalars['String']>;
+  sideCurtains?: Maybe<Scalars['String']>;
+  created_by?: Maybe<StrapiBodyCreated_By>;
+  updated_by?: Maybe<StrapiBodyUpdated_By>;
+  created_at?: Maybe<Scalars['Date']>;
+  updated_at?: Maybe<Scalars['Date']>;
+  image?: Maybe<File>;
+  strapiId?: Maybe<Scalars['Int']>;
+};
+
+
+export type StrapiBodyCreated_AtArgs = {
+  formatString?: Maybe<Scalars['String']>;
+  fromNow?: Maybe<Scalars['Boolean']>;
+  difference?: Maybe<Scalars['String']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+export type StrapiBodyUpdated_AtArgs = {
+  formatString?: Maybe<Scalars['String']>;
+  fromNow?: Maybe<Scalars['Boolean']>;
+  difference?: Maybe<Scalars['String']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+export type StrapiBodyConnection = {
+  __typename?: 'StrapiBodyConnection';
+  totalCount: Scalars['Int'];
+  edges: Array<StrapiBodyEdge>;
+  nodes: Array<StrapiBody>;
+  pageInfo: PageInfo;
+  distinct: Array<Scalars['String']>;
+  group: Array<StrapiBodyGroupConnection>;
+};
+
+
+export type StrapiBodyConnectionDistinctArgs = {
+  field: StrapiBodyFieldsEnum;
+};
+
+
+export type StrapiBodyConnectionGroupArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  field: StrapiBodyFieldsEnum;
+};
+
+export type StrapiBodyCreated_By = {
+  __typename?: 'StrapiBodyCreated_by';
+  id?: Maybe<Scalars['Int']>;
+  firstname?: Maybe<Scalars['String']>;
+  lastname?: Maybe<Scalars['String']>;
+};
+
+export type StrapiBodyCreated_ByFilterInput = {
+  id?: Maybe<IntQueryOperatorInput>;
+  firstname?: Maybe<StringQueryOperatorInput>;
+  lastname?: Maybe<StringQueryOperatorInput>;
+};
+
+export type StrapiBodyEdge = {
+  __typename?: 'StrapiBodyEdge';
+  next?: Maybe<StrapiBody>;
+  node: StrapiBody;
+  previous?: Maybe<StrapiBody>;
+};
+
+export enum StrapiBodyFieldsEnum {
+  Id = 'id',
+  ParentId = 'parent___id',
+  ParentParentId = 'parent___parent___id',
+  ParentParentParentId = 'parent___parent___parent___id',
+  ParentParentParentChildren = 'parent___parent___parent___children',
+  ParentParentChildren = 'parent___parent___children',
+  ParentParentChildrenId = 'parent___parent___children___id',
+  ParentParentChildrenChildren = 'parent___parent___children___children',
+  ParentParentInternalContent = 'parent___parent___internal___content',
+  ParentParentInternalContentDigest = 'parent___parent___internal___contentDigest',
+  ParentParentInternalDescription = 'parent___parent___internal___description',
+  ParentParentInternalFieldOwners = 'parent___parent___internal___fieldOwners',
+  ParentParentInternalIgnoreType = 'parent___parent___internal___ignoreType',
+  ParentParentInternalMediaType = 'parent___parent___internal___mediaType',
+  ParentParentInternalOwner = 'parent___parent___internal___owner',
+  ParentParentInternalType = 'parent___parent___internal___type',
+  ParentChildren = 'parent___children',
+  ParentChildrenId = 'parent___children___id',
+  ParentChildrenParentId = 'parent___children___parent___id',
+  ParentChildrenParentChildren = 'parent___children___parent___children',
+  ParentChildrenChildren = 'parent___children___children',
+  ParentChildrenChildrenId = 'parent___children___children___id',
+  ParentChildrenChildrenChildren = 'parent___children___children___children',
+  ParentChildrenInternalContent = 'parent___children___internal___content',
+  ParentChildrenInternalContentDigest = 'parent___children___internal___contentDigest',
+  ParentChildrenInternalDescription = 'parent___children___internal___description',
+  ParentChildrenInternalFieldOwners = 'parent___children___internal___fieldOwners',
+  ParentChildrenInternalIgnoreType = 'parent___children___internal___ignoreType',
+  ParentChildrenInternalMediaType = 'parent___children___internal___mediaType',
+  ParentChildrenInternalOwner = 'parent___children___internal___owner',
+  ParentChildrenInternalType = 'parent___children___internal___type',
+  ParentInternalContent = 'parent___internal___content',
+  ParentInternalContentDigest = 'parent___internal___contentDigest',
+  ParentInternalDescription = 'parent___internal___description',
+  ParentInternalFieldOwners = 'parent___internal___fieldOwners',
+  ParentInternalIgnoreType = 'parent___internal___ignoreType',
+  ParentInternalMediaType = 'parent___internal___mediaType',
+  ParentInternalOwner = 'parent___internal___owner',
+  ParentInternalType = 'parent___internal___type',
+  Children = 'children',
+  ChildrenId = 'children___id',
+  ChildrenParentId = 'children___parent___id',
+  ChildrenParentParentId = 'children___parent___parent___id',
+  ChildrenParentParentChildren = 'children___parent___parent___children',
+  ChildrenParentChildren = 'children___parent___children',
+  ChildrenParentChildrenId = 'children___parent___children___id',
+  ChildrenParentChildrenChildren = 'children___parent___children___children',
+  ChildrenParentInternalContent = 'children___parent___internal___content',
+  ChildrenParentInternalContentDigest = 'children___parent___internal___contentDigest',
+  ChildrenParentInternalDescription = 'children___parent___internal___description',
+  ChildrenParentInternalFieldOwners = 'children___parent___internal___fieldOwners',
+  ChildrenParentInternalIgnoreType = 'children___parent___internal___ignoreType',
+  ChildrenParentInternalMediaType = 'children___parent___internal___mediaType',
+  ChildrenParentInternalOwner = 'children___parent___internal___owner',
+  ChildrenParentInternalType = 'children___parent___internal___type',
+  ChildrenChildren = 'children___children',
+  ChildrenChildrenId = 'children___children___id',
+  ChildrenChildrenParentId = 'children___children___parent___id',
+  ChildrenChildrenParentChildren = 'children___children___parent___children',
+  ChildrenChildrenChildren = 'children___children___children',
+  ChildrenChildrenChildrenId = 'children___children___children___id',
+  ChildrenChildrenChildrenChildren = 'children___children___children___children',
+  ChildrenChildrenInternalContent = 'children___children___internal___content',
+  ChildrenChildrenInternalContentDigest = 'children___children___internal___contentDigest',
+  ChildrenChildrenInternalDescription = 'children___children___internal___description',
+  ChildrenChildrenInternalFieldOwners = 'children___children___internal___fieldOwners',
+  ChildrenChildrenInternalIgnoreType = 'children___children___internal___ignoreType',
+  ChildrenChildrenInternalMediaType = 'children___children___internal___mediaType',
+  ChildrenChildrenInternalOwner = 'children___children___internal___owner',
+  ChildrenChildrenInternalType = 'children___children___internal___type',
+  ChildrenInternalContent = 'children___internal___content',
+  ChildrenInternalContentDigest = 'children___internal___contentDigest',
+  ChildrenInternalDescription = 'children___internal___description',
+  ChildrenInternalFieldOwners = 'children___internal___fieldOwners',
+  ChildrenInternalIgnoreType = 'children___internal___ignoreType',
+  ChildrenInternalMediaType = 'children___internal___mediaType',
+  ChildrenInternalOwner = 'children___internal___owner',
+  ChildrenInternalType = 'children___internal___type',
+  InternalContent = 'internal___content',
+  InternalContentDigest = 'internal___contentDigest',
+  InternalDescription = 'internal___description',
+  InternalFieldOwners = 'internal___fieldOwners',
+  InternalIgnoreType = 'internal___ignoreType',
+  InternalMediaType = 'internal___mediaType',
+  InternalOwner = 'internal___owner',
+  InternalType = 'internal___type',
+  Company = 'company',
+  PdfLink = 'pdfLink',
+  Type = 'type',
+  Model = 'model',
+  Subframe = 'subframe',
+  Floor = 'floor',
+  Threshold = 'threshold',
+  Mounting = 'mounting',
+  RearDoor = 'rearDoor',
+  RearFrame = 'rearFrame',
+  Roof = 'roof',
+  Skins = 'skins',
+  SideWall = 'sideWall',
+  FrontEnd = 'frontEnd',
+  Bumper = 'bumper',
+  InteriorLighting = 'interiorLighting',
+  ExteriorLighting = 'exteriorLighting',
+  Mudflaps = 'mudflaps',
+  Panels = 'panels',
+  CabAccessDoor = 'cabAccessDoor',
+  CabLiner = 'cabLiner',
+  RearFinish = 'rearFinish',
+  LiningSides = 'liningSides',
+  GrabHandles = 'grabHandles',
+  SidePanels = 'sidePanels',
+  SideFrame = 'sideFrame',
+  FrontWall = 'frontWall',
+  FrontAcDoor = 'frontACDoor',
+  Understructure = 'understructure',
+  SideCurtains = 'sideCurtains',
+  CreatedById = 'created_by___id',
+  CreatedByFirstname = 'created_by___firstname',
+  CreatedByLastname = 'created_by___lastname',
+  UpdatedById = 'updated_by___id',
+  UpdatedByFirstname = 'updated_by___firstname',
+  UpdatedByLastname = 'updated_by___lastname',
+  CreatedAt = 'created_at',
+  UpdatedAt = 'updated_at',
+  ImageSourceInstanceName = 'image___sourceInstanceName',
+  ImageAbsolutePath = 'image___absolutePath',
+  ImageRelativePath = 'image___relativePath',
+  ImageExtension = 'image___extension',
+  ImageSize = 'image___size',
+  ImagePrettySize = 'image___prettySize',
+  ImageModifiedTime = 'image___modifiedTime',
+  ImageAccessTime = 'image___accessTime',
+  ImageChangeTime = 'image___changeTime',
+  ImageBirthTime = 'image___birthTime',
+  ImageRoot = 'image___root',
+  ImageDir = 'image___dir',
+  ImageBase = 'image___base',
+  ImageExt = 'image___ext',
+  ImageName = 'image___name',
+  ImageRelativeDirectory = 'image___relativeDirectory',
+  ImageDev = 'image___dev',
+  ImageMode = 'image___mode',
+  ImageNlink = 'image___nlink',
+  ImageUid = 'image___uid',
+  ImageGid = 'image___gid',
+  ImageRdev = 'image___rdev',
+  ImageIno = 'image___ino',
+  ImageAtimeMs = 'image___atimeMs',
+  ImageMtimeMs = 'image___mtimeMs',
+  ImageCtimeMs = 'image___ctimeMs',
+  ImageAtime = 'image___atime',
+  ImageMtime = 'image___mtime',
+  ImageCtime = 'image___ctime',
+  ImageBirthtime = 'image___birthtime',
+  ImageBirthtimeMs = 'image___birthtimeMs',
+  ImageBlksize = 'image___blksize',
+  ImageBlocks = 'image___blocks',
+  ImagePublicUrl = 'image___publicURL',
+  ImageChildImageSharpFixedBase64 = 'image___childImageSharp___fixed___base64',
+  ImageChildImageSharpFixedTracedSvg = 'image___childImageSharp___fixed___tracedSVG',
+  ImageChildImageSharpFixedAspectRatio = 'image___childImageSharp___fixed___aspectRatio',
+  ImageChildImageSharpFixedWidth = 'image___childImageSharp___fixed___width',
+  ImageChildImageSharpFixedHeight = 'image___childImageSharp___fixed___height',
+  ImageChildImageSharpFixedSrc = 'image___childImageSharp___fixed___src',
+  ImageChildImageSharpFixedSrcSet = 'image___childImageSharp___fixed___srcSet',
+  ImageChildImageSharpFixedSrcWebp = 'image___childImageSharp___fixed___srcWebp',
+  ImageChildImageSharpFixedSrcSetWebp = 'image___childImageSharp___fixed___srcSetWebp',
+  ImageChildImageSharpFixedOriginalName = 'image___childImageSharp___fixed___originalName',
+  ImageChildImageSharpResolutionsBase64 = 'image___childImageSharp___resolutions___base64',
+  ImageChildImageSharpResolutionsTracedSvg = 'image___childImageSharp___resolutions___tracedSVG',
+  ImageChildImageSharpResolutionsAspectRatio = 'image___childImageSharp___resolutions___aspectRatio',
+  ImageChildImageSharpResolutionsWidth = 'image___childImageSharp___resolutions___width',
+  ImageChildImageSharpResolutionsHeight = 'image___childImageSharp___resolutions___height',
+  ImageChildImageSharpResolutionsSrc = 'image___childImageSharp___resolutions___src',
+  ImageChildImageSharpResolutionsSrcSet = 'image___childImageSharp___resolutions___srcSet',
+  ImageChildImageSharpResolutionsSrcWebp = 'image___childImageSharp___resolutions___srcWebp',
+  ImageChildImageSharpResolutionsSrcSetWebp = 'image___childImageSharp___resolutions___srcSetWebp',
+  ImageChildImageSharpResolutionsOriginalName = 'image___childImageSharp___resolutions___originalName',
+  ImageChildImageSharpFluidBase64 = 'image___childImageSharp___fluid___base64',
+  ImageChildImageSharpFluidTracedSvg = 'image___childImageSharp___fluid___tracedSVG',
+  ImageChildImageSharpFluidAspectRatio = 'image___childImageSharp___fluid___aspectRatio',
+  ImageChildImageSharpFluidSrc = 'image___childImageSharp___fluid___src',
+  ImageChildImageSharpFluidSrcSet = 'image___childImageSharp___fluid___srcSet',
+  ImageChildImageSharpFluidSrcWebp = 'image___childImageSharp___fluid___srcWebp',
+  ImageChildImageSharpFluidSrcSetWebp = 'image___childImageSharp___fluid___srcSetWebp',
+  ImageChildImageSharpFluidSizes = 'image___childImageSharp___fluid___sizes',
+  ImageChildImageSharpFluidOriginalImg = 'image___childImageSharp___fluid___originalImg',
+  ImageChildImageSharpFluidOriginalName = 'image___childImageSharp___fluid___originalName',
+  ImageChildImageSharpFluidPresentationWidth = 'image___childImageSharp___fluid___presentationWidth',
+  ImageChildImageSharpFluidPresentationHeight = 'image___childImageSharp___fluid___presentationHeight',
+  ImageChildImageSharpSizesBase64 = 'image___childImageSharp___sizes___base64',
+  ImageChildImageSharpSizesTracedSvg = 'image___childImageSharp___sizes___tracedSVG',
+  ImageChildImageSharpSizesAspectRatio = 'image___childImageSharp___sizes___aspectRatio',
+  ImageChildImageSharpSizesSrc = 'image___childImageSharp___sizes___src',
+  ImageChildImageSharpSizesSrcSet = 'image___childImageSharp___sizes___srcSet',
+  ImageChildImageSharpSizesSrcWebp = 'image___childImageSharp___sizes___srcWebp',
+  ImageChildImageSharpSizesSrcSetWebp = 'image___childImageSharp___sizes___srcSetWebp',
+  ImageChildImageSharpSizesSizes = 'image___childImageSharp___sizes___sizes',
+  ImageChildImageSharpSizesOriginalImg = 'image___childImageSharp___sizes___originalImg',
+  ImageChildImageSharpSizesOriginalName = 'image___childImageSharp___sizes___originalName',
+  ImageChildImageSharpSizesPresentationWidth = 'image___childImageSharp___sizes___presentationWidth',
+  ImageChildImageSharpSizesPresentationHeight = 'image___childImageSharp___sizes___presentationHeight',
+  ImageChildImageSharpOriginalWidth = 'image___childImageSharp___original___width',
+  ImageChildImageSharpOriginalHeight = 'image___childImageSharp___original___height',
+  ImageChildImageSharpOriginalSrc = 'image___childImageSharp___original___src',
+  ImageChildImageSharpResizeSrc = 'image___childImageSharp___resize___src',
+  ImageChildImageSharpResizeTracedSvg = 'image___childImageSharp___resize___tracedSVG',
+  ImageChildImageSharpResizeWidth = 'image___childImageSharp___resize___width',
+  ImageChildImageSharpResizeHeight = 'image___childImageSharp___resize___height',
+  ImageChildImageSharpResizeAspectRatio = 'image___childImageSharp___resize___aspectRatio',
+  ImageChildImageSharpResizeOriginalName = 'image___childImageSharp___resize___originalName',
+  ImageChildImageSharpId = 'image___childImageSharp___id',
+  ImageChildImageSharpParentId = 'image___childImageSharp___parent___id',
+  ImageChildImageSharpParentChildren = 'image___childImageSharp___parent___children',
+  ImageChildImageSharpChildren = 'image___childImageSharp___children',
+  ImageChildImageSharpChildrenId = 'image___childImageSharp___children___id',
+  ImageChildImageSharpChildrenChildren = 'image___childImageSharp___children___children',
+  ImageChildImageSharpInternalContent = 'image___childImageSharp___internal___content',
+  ImageChildImageSharpInternalContentDigest = 'image___childImageSharp___internal___contentDigest',
+  ImageChildImageSharpInternalDescription = 'image___childImageSharp___internal___description',
+  ImageChildImageSharpInternalFieldOwners = 'image___childImageSharp___internal___fieldOwners',
+  ImageChildImageSharpInternalIgnoreType = 'image___childImageSharp___internal___ignoreType',
+  ImageChildImageSharpInternalMediaType = 'image___childImageSharp___internal___mediaType',
+  ImageChildImageSharpInternalOwner = 'image___childImageSharp___internal___owner',
+  ImageChildImageSharpInternalType = 'image___childImageSharp___internal___type',
+  ImageId = 'image___id',
+  ImageParentId = 'image___parent___id',
+  ImageParentParentId = 'image___parent___parent___id',
+  ImageParentParentChildren = 'image___parent___parent___children',
+  ImageParentChildren = 'image___parent___children',
+  ImageParentChildrenId = 'image___parent___children___id',
+  ImageParentChildrenChildren = 'image___parent___children___children',
+  ImageParentInternalContent = 'image___parent___internal___content',
+  ImageParentInternalContentDigest = 'image___parent___internal___contentDigest',
+  ImageParentInternalDescription = 'image___parent___internal___description',
+  ImageParentInternalFieldOwners = 'image___parent___internal___fieldOwners',
+  ImageParentInternalIgnoreType = 'image___parent___internal___ignoreType',
+  ImageParentInternalMediaType = 'image___parent___internal___mediaType',
+  ImageParentInternalOwner = 'image___parent___internal___owner',
+  ImageParentInternalType = 'image___parent___internal___type',
+  ImageChildren = 'image___children',
+  ImageChildrenId = 'image___children___id',
+  ImageChildrenParentId = 'image___children___parent___id',
+  ImageChildrenParentChildren = 'image___children___parent___children',
+  ImageChildrenChildren = 'image___children___children',
+  ImageChildrenChildrenId = 'image___children___children___id',
+  ImageChildrenChildrenChildren = 'image___children___children___children',
+  ImageChildrenInternalContent = 'image___children___internal___content',
+  ImageChildrenInternalContentDigest = 'image___children___internal___contentDigest',
+  ImageChildrenInternalDescription = 'image___children___internal___description',
+  ImageChildrenInternalFieldOwners = 'image___children___internal___fieldOwners',
+  ImageChildrenInternalIgnoreType = 'image___children___internal___ignoreType',
+  ImageChildrenInternalMediaType = 'image___children___internal___mediaType',
+  ImageChildrenInternalOwner = 'image___children___internal___owner',
+  ImageChildrenInternalType = 'image___children___internal___type',
+  ImageInternalContent = 'image___internal___content',
+  ImageInternalContentDigest = 'image___internal___contentDigest',
+  ImageInternalDescription = 'image___internal___description',
+  ImageInternalFieldOwners = 'image___internal___fieldOwners',
+  ImageInternalIgnoreType = 'image___internal___ignoreType',
+  ImageInternalMediaType = 'image___internal___mediaType',
+  ImageInternalOwner = 'image___internal___owner',
+  ImageInternalType = 'image___internal___type',
+  StrapiId = 'strapiId'
+}
+
+export type StrapiBodyFilterInput = {
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
+  company?: Maybe<StringQueryOperatorInput>;
+  pdfLink?: Maybe<StringQueryOperatorInput>;
+  type?: Maybe<StringQueryOperatorInput>;
+  model?: Maybe<StringQueryOperatorInput>;
+  subframe?: Maybe<StringQueryOperatorInput>;
+  floor?: Maybe<StringQueryOperatorInput>;
+  threshold?: Maybe<StringQueryOperatorInput>;
+  mounting?: Maybe<StringQueryOperatorInput>;
+  rearDoor?: Maybe<StringQueryOperatorInput>;
+  rearFrame?: Maybe<StringQueryOperatorInput>;
+  roof?: Maybe<StringQueryOperatorInput>;
+  skins?: Maybe<StringQueryOperatorInput>;
+  sideWall?: Maybe<StringQueryOperatorInput>;
+  frontEnd?: Maybe<StringQueryOperatorInput>;
+  bumper?: Maybe<StringQueryOperatorInput>;
+  interiorLighting?: Maybe<StringQueryOperatorInput>;
+  exteriorLighting?: Maybe<StringQueryOperatorInput>;
+  mudflaps?: Maybe<StringQueryOperatorInput>;
+  panels?: Maybe<StringQueryOperatorInput>;
+  cabAccessDoor?: Maybe<StringQueryOperatorInput>;
+  cabLiner?: Maybe<StringQueryOperatorInput>;
+  rearFinish?: Maybe<StringQueryOperatorInput>;
+  liningSides?: Maybe<StringQueryOperatorInput>;
+  grabHandles?: Maybe<StringQueryOperatorInput>;
+  sidePanels?: Maybe<StringQueryOperatorInput>;
+  sideFrame?: Maybe<StringQueryOperatorInput>;
+  frontWall?: Maybe<StringQueryOperatorInput>;
+  frontACDoor?: Maybe<StringQueryOperatorInput>;
+  understructure?: Maybe<StringQueryOperatorInput>;
+  sideCurtains?: Maybe<StringQueryOperatorInput>;
+  created_by?: Maybe<StrapiBodyCreated_ByFilterInput>;
+  updated_by?: Maybe<StrapiBodyUpdated_ByFilterInput>;
+  created_at?: Maybe<DateQueryOperatorInput>;
+  updated_at?: Maybe<DateQueryOperatorInput>;
+  image?: Maybe<FileFilterInput>;
+  strapiId?: Maybe<IntQueryOperatorInput>;
+};
+
+export type StrapiBodyGroupConnection = {
+  __typename?: 'StrapiBodyGroupConnection';
+  totalCount: Scalars['Int'];
+  edges: Array<StrapiBodyEdge>;
+  nodes: Array<StrapiBody>;
+  pageInfo: PageInfo;
+  field: Scalars['String'];
+  fieldValue?: Maybe<Scalars['String']>;
+};
+
+export type StrapiBodySortInput = {
+  fields?: Maybe<Array<Maybe<StrapiBodyFieldsEnum>>>;
+  order?: Maybe<Array<Maybe<SortOrderEnum>>>;
+};
+
+export type StrapiBodyUpdated_By = {
+  __typename?: 'StrapiBodyUpdated_by';
+  id?: Maybe<Scalars['Int']>;
+  firstname?: Maybe<Scalars['String']>;
+  lastname?: Maybe<Scalars['String']>;
+};
+
+export type StrapiBodyUpdated_ByFilterInput = {
+  id?: Maybe<IntQueryOperatorInput>;
+  firstname?: Maybe<StringQueryOperatorInput>;
+  lastname?: Maybe<StringQueryOperatorInput>;
+};
+
 export type StrapiMake = Node & {
   __typename?: 'StrapiMake';
   id: Scalars['ID'];
@@ -2874,7 +3628,6 @@ export enum StrapiMakeFieldsEnum {
   Trucks = 'trucks',
   TrucksId = 'trucks___id',
   TrucksModel = 'trucks___model',
-  TrucksMake = 'trucks___make',
   TrucksModelYear = 'trucks___modelYear',
   TrucksModelGvwr = 'trucks___modelGVWR',
   TrucksModelGcwr = 'trucks___modelGCWR',
@@ -2901,6 +3654,7 @@ export enum StrapiMakeFieldsEnum {
   TrucksAirCleaners = 'trucks___airCleaners',
   TrucksBatteryBox = 'trucks___batteryBox',
   TrucksBumper = 'trucks___bumper',
+  TrucksMake = 'trucks___make',
   TrucksCreatedBy = 'trucks___created_by',
   TrucksUpdatedBy = 'trucks___updated_by',
   TrucksCreatedAt = 'trucks___created_at',
@@ -2992,7 +3746,6 @@ export type StrapiMakeTrucks = {
   __typename?: 'StrapiMakeTrucks';
   id?: Maybe<Scalars['Int']>;
   model?: Maybe<Scalars['String']>;
-  make?: Maybe<Scalars['Int']>;
   modelYear?: Maybe<Scalars['String']>;
   modelGVWR?: Maybe<Scalars['String']>;
   modelGCWR?: Maybe<Scalars['String']>;
@@ -3019,6 +3772,7 @@ export type StrapiMakeTrucks = {
   airCleaners?: Maybe<Scalars['String']>;
   batteryBox?: Maybe<Scalars['String']>;
   bumper?: Maybe<Scalars['String']>;
+  make?: Maybe<Scalars['Int']>;
   created_by?: Maybe<Scalars['Int']>;
   updated_by?: Maybe<Scalars['Int']>;
   created_at?: Maybe<Scalars['Date']>;
@@ -3045,7 +3799,6 @@ export type StrapiMakeTrucksUpdated_AtArgs = {
 export type StrapiMakeTrucksFilterInput = {
   id?: Maybe<IntQueryOperatorInput>;
   model?: Maybe<StringQueryOperatorInput>;
-  make?: Maybe<IntQueryOperatorInput>;
   modelYear?: Maybe<StringQueryOperatorInput>;
   modelGVWR?: Maybe<StringQueryOperatorInput>;
   modelGCWR?: Maybe<StringQueryOperatorInput>;
@@ -3072,6 +3825,7 @@ export type StrapiMakeTrucksFilterInput = {
   airCleaners?: Maybe<StringQueryOperatorInput>;
   batteryBox?: Maybe<StringQueryOperatorInput>;
   bumper?: Maybe<StringQueryOperatorInput>;
+  make?: Maybe<IntQueryOperatorInput>;
   created_by?: Maybe<IntQueryOperatorInput>;
   updated_by?: Maybe<IntQueryOperatorInput>;
   created_at?: Maybe<DateQueryOperatorInput>;
@@ -3102,13 +3856,13 @@ export type StrapiTrackSaleOnline = Node & {
   parent?: Maybe<Node>;
   children: Array<Node>;
   internal: Internal;
+  aboutPageContent?: Maybe<Scalars['String']>;
+  privacyPageContent?: Maybe<Scalars['String']>;
+  termsOfUsePageContent?: Maybe<Scalars['String']>;
   created_by?: Maybe<StrapiTrackSaleOnlineCreated_By>;
   updated_by?: Maybe<StrapiTrackSaleOnlineUpdated_By>;
   created_at?: Maybe<Scalars['Date']>;
   updated_at?: Maybe<Scalars['Date']>;
-  aboutPageContent?: Maybe<Scalars['String']>;
-  privacyPageContent?: Maybe<Scalars['String']>;
-  termsOfUsePageContent?: Maybe<Scalars['String']>;
   footer?: Maybe<StrapiTrackSaleOnlineFooter>;
   header?: Maybe<StrapiTrackSaleOnlineHeader>;
   strapiId?: Maybe<Scalars['Int']>;
@@ -3259,6 +4013,9 @@ export enum StrapiTrackSaleOnlineFieldsEnum {
   InternalMediaType = 'internal___mediaType',
   InternalOwner = 'internal___owner',
   InternalType = 'internal___type',
+  AboutPageContent = 'aboutPageContent',
+  PrivacyPageContent = 'privacyPageContent',
+  TermsOfUsePageContent = 'termsOfUsePageContent',
   CreatedById = 'created_by___id',
   CreatedByFirstname = 'created_by___firstname',
   CreatedByLastname = 'created_by___lastname',
@@ -3267,9 +4024,6 @@ export enum StrapiTrackSaleOnlineFieldsEnum {
   UpdatedByLastname = 'updated_by___lastname',
   CreatedAt = 'created_at',
   UpdatedAt = 'updated_at',
-  AboutPageContent = 'aboutPageContent',
-  PrivacyPageContent = 'privacyPageContent',
-  TermsOfUsePageContent = 'termsOfUsePageContent',
   FooterId = 'footer___id',
   FooterNavigation = 'footer___navigation',
   FooterNavigationId = 'footer___navigation___id',
@@ -3288,13 +4042,13 @@ export type StrapiTrackSaleOnlineFilterInput = {
   parent?: Maybe<NodeFilterInput>;
   children?: Maybe<NodeFilterListInput>;
   internal?: Maybe<InternalFilterInput>;
+  aboutPageContent?: Maybe<StringQueryOperatorInput>;
+  privacyPageContent?: Maybe<StringQueryOperatorInput>;
+  termsOfUsePageContent?: Maybe<StringQueryOperatorInput>;
   created_by?: Maybe<StrapiTrackSaleOnlineCreated_ByFilterInput>;
   updated_by?: Maybe<StrapiTrackSaleOnlineUpdated_ByFilterInput>;
   created_at?: Maybe<DateQueryOperatorInput>;
   updated_at?: Maybe<DateQueryOperatorInput>;
-  aboutPageContent?: Maybe<StringQueryOperatorInput>;
-  privacyPageContent?: Maybe<StringQueryOperatorInput>;
-  termsOfUsePageContent?: Maybe<StringQueryOperatorInput>;
   footer?: Maybe<StrapiTrackSaleOnlineFooterFilterInput>;
   header?: Maybe<StrapiTrackSaleOnlineHeaderFilterInput>;
   strapiId?: Maybe<IntQueryOperatorInput>;
@@ -3391,7 +4145,6 @@ export type StrapiTruck = Node & {
   children: Array<Node>;
   internal: Internal;
   model?: Maybe<Scalars['String']>;
-  make?: Maybe<StrapiTruckMake>;
   modelYear?: Maybe<Scalars['String']>;
   modelGVWR?: Maybe<Scalars['String']>;
   modelGCWR?: Maybe<Scalars['String']>;
@@ -3418,6 +4171,7 @@ export type StrapiTruck = Node & {
   airCleaners?: Maybe<Scalars['String']>;
   batteryBox?: Maybe<Scalars['String']>;
   bumper?: Maybe<Scalars['String']>;
+  make?: Maybe<StrapiTruckMake>;
   created_by?: Maybe<StrapiTruckCreated_By>;
   updated_by?: Maybe<StrapiTruckUpdated_By>;
   created_at?: Maybe<Scalars['Date']>;
@@ -3572,6 +4326,32 @@ export enum StrapiTruckFieldsEnum {
   InternalOwner = 'internal___owner',
   InternalType = 'internal___type',
   Model = 'model',
+  ModelYear = 'modelYear',
+  ModelGvwr = 'modelGVWR',
+  ModelGcwr = 'modelGCWR',
+  ModelGawrFront = 'modelGAWRFront',
+  ModelGawrRear = 'modelGAWRRear',
+  ModelPayload = 'modelPayload',
+  ModelSuspensionType = 'modelSuspensionType',
+  ModelSuspensionCapacity = 'modelSuspensionCapacity',
+  ModelBrakeType = 'modelBrakeType',
+  ModelBrakesFront = 'modelBrakesFront',
+  ModelBrakesRear = 'modelBrakesRear',
+  ModelTransmission = 'modelTransmission',
+  ModelEngine = 'modelEngine',
+  ModelEngineDisplacement = 'modelEngineDisplacement',
+  ModelEngineHp = 'modelEngineHP',
+  ModelEngineTorque = 'modelEngineTorque',
+  ModelBatteries = 'modelBatteries',
+  ModelFuelTankCapacity = 'modelFuelTankCapacity',
+  ModelWheelbases = 'modelWheelbases',
+  LimitedSlipDifferential = 'limitedSlipDifferential',
+  ModelPdfCatalogueLink = 'modelPdfCatalogueLink',
+  ModelCabType = 'modelCabType',
+  ModelColors = 'modelColors',
+  AirCleaners = 'airCleaners',
+  BatteryBox = 'batteryBox',
+  Bumper = 'bumper',
   MakeId = 'make___id',
   MakeName = 'make___name',
   MakeCreatedBy = 'make___created_by',
@@ -3628,32 +4408,6 @@ export enum StrapiTruckFieldsEnum {
   MakeImageInternalMediaType = 'make___image___internal___mediaType',
   MakeImageInternalOwner = 'make___image___internal___owner',
   MakeImageInternalType = 'make___image___internal___type',
-  ModelYear = 'modelYear',
-  ModelGvwr = 'modelGVWR',
-  ModelGcwr = 'modelGCWR',
-  ModelGawrFront = 'modelGAWRFront',
-  ModelGawrRear = 'modelGAWRRear',
-  ModelPayload = 'modelPayload',
-  ModelSuspensionType = 'modelSuspensionType',
-  ModelSuspensionCapacity = 'modelSuspensionCapacity',
-  ModelBrakeType = 'modelBrakeType',
-  ModelBrakesFront = 'modelBrakesFront',
-  ModelBrakesRear = 'modelBrakesRear',
-  ModelTransmission = 'modelTransmission',
-  ModelEngine = 'modelEngine',
-  ModelEngineDisplacement = 'modelEngineDisplacement',
-  ModelEngineHp = 'modelEngineHP',
-  ModelEngineTorque = 'modelEngineTorque',
-  ModelBatteries = 'modelBatteries',
-  ModelFuelTankCapacity = 'modelFuelTankCapacity',
-  ModelWheelbases = 'modelWheelbases',
-  LimitedSlipDifferential = 'limitedSlipDifferential',
-  ModelPdfCatalogueLink = 'modelPdfCatalogueLink',
-  ModelCabType = 'modelCabType',
-  ModelColors = 'modelColors',
-  AirCleaners = 'airCleaners',
-  BatteryBox = 'batteryBox',
-  Bumper = 'bumper',
   CreatedById = 'created_by___id',
   CreatedByFirstname = 'created_by___firstname',
   CreatedByLastname = 'created_by___lastname',
@@ -3810,7 +4564,6 @@ export type StrapiTruckFilterInput = {
   children?: Maybe<NodeFilterListInput>;
   internal?: Maybe<InternalFilterInput>;
   model?: Maybe<StringQueryOperatorInput>;
-  make?: Maybe<StrapiTruckMakeFilterInput>;
   modelYear?: Maybe<StringQueryOperatorInput>;
   modelGVWR?: Maybe<StringQueryOperatorInput>;
   modelGCWR?: Maybe<StringQueryOperatorInput>;
@@ -3837,6 +4590,7 @@ export type StrapiTruckFilterInput = {
   airCleaners?: Maybe<StringQueryOperatorInput>;
   batteryBox?: Maybe<StringQueryOperatorInput>;
   bumper?: Maybe<StringQueryOperatorInput>;
+  make?: Maybe<StrapiTruckMakeFilterInput>;
   created_by?: Maybe<StrapiTruckCreated_ByFilterInput>;
   updated_by?: Maybe<StrapiTruckUpdated_ByFilterInput>;
   created_at?: Maybe<DateQueryOperatorInput>;
@@ -3905,6 +4659,218 @@ export type StrapiTruckUpdated_By = {
 };
 
 export type StrapiTruckUpdated_ByFilterInput = {
+  id?: Maybe<IntQueryOperatorInput>;
+  firstname?: Maybe<StringQueryOperatorInput>;
+  lastname?: Maybe<StringQueryOperatorInput>;
+};
+
+export type StrapiUpfit = Node & {
+  __typename?: 'StrapiUpfit';
+  id: Scalars['ID'];
+  parent?: Maybe<Node>;
+  children: Array<Node>;
+  internal: Internal;
+  placeholder?: Maybe<Scalars['String']>;
+  created_by?: Maybe<StrapiUpfitCreated_By>;
+  updated_by?: Maybe<StrapiUpfitUpdated_By>;
+  created_at?: Maybe<Scalars['Date']>;
+  updated_at?: Maybe<Scalars['Date']>;
+  strapiId?: Maybe<Scalars['Int']>;
+};
+
+
+export type StrapiUpfitCreated_AtArgs = {
+  formatString?: Maybe<Scalars['String']>;
+  fromNow?: Maybe<Scalars['Boolean']>;
+  difference?: Maybe<Scalars['String']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+export type StrapiUpfitUpdated_AtArgs = {
+  formatString?: Maybe<Scalars['String']>;
+  fromNow?: Maybe<Scalars['Boolean']>;
+  difference?: Maybe<Scalars['String']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+export type StrapiUpfitConnection = {
+  __typename?: 'StrapiUpfitConnection';
+  totalCount: Scalars['Int'];
+  edges: Array<StrapiUpfitEdge>;
+  nodes: Array<StrapiUpfit>;
+  pageInfo: PageInfo;
+  distinct: Array<Scalars['String']>;
+  group: Array<StrapiUpfitGroupConnection>;
+};
+
+
+export type StrapiUpfitConnectionDistinctArgs = {
+  field: StrapiUpfitFieldsEnum;
+};
+
+
+export type StrapiUpfitConnectionGroupArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  field: StrapiUpfitFieldsEnum;
+};
+
+export type StrapiUpfitCreated_By = {
+  __typename?: 'StrapiUpfitCreated_by';
+  id?: Maybe<Scalars['Int']>;
+  firstname?: Maybe<Scalars['String']>;
+  lastname?: Maybe<Scalars['String']>;
+};
+
+export type StrapiUpfitCreated_ByFilterInput = {
+  id?: Maybe<IntQueryOperatorInput>;
+  firstname?: Maybe<StringQueryOperatorInput>;
+  lastname?: Maybe<StringQueryOperatorInput>;
+};
+
+export type StrapiUpfitEdge = {
+  __typename?: 'StrapiUpfitEdge';
+  next?: Maybe<StrapiUpfit>;
+  node: StrapiUpfit;
+  previous?: Maybe<StrapiUpfit>;
+};
+
+export enum StrapiUpfitFieldsEnum {
+  Id = 'id',
+  ParentId = 'parent___id',
+  ParentParentId = 'parent___parent___id',
+  ParentParentParentId = 'parent___parent___parent___id',
+  ParentParentParentChildren = 'parent___parent___parent___children',
+  ParentParentChildren = 'parent___parent___children',
+  ParentParentChildrenId = 'parent___parent___children___id',
+  ParentParentChildrenChildren = 'parent___parent___children___children',
+  ParentParentInternalContent = 'parent___parent___internal___content',
+  ParentParentInternalContentDigest = 'parent___parent___internal___contentDigest',
+  ParentParentInternalDescription = 'parent___parent___internal___description',
+  ParentParentInternalFieldOwners = 'parent___parent___internal___fieldOwners',
+  ParentParentInternalIgnoreType = 'parent___parent___internal___ignoreType',
+  ParentParentInternalMediaType = 'parent___parent___internal___mediaType',
+  ParentParentInternalOwner = 'parent___parent___internal___owner',
+  ParentParentInternalType = 'parent___parent___internal___type',
+  ParentChildren = 'parent___children',
+  ParentChildrenId = 'parent___children___id',
+  ParentChildrenParentId = 'parent___children___parent___id',
+  ParentChildrenParentChildren = 'parent___children___parent___children',
+  ParentChildrenChildren = 'parent___children___children',
+  ParentChildrenChildrenId = 'parent___children___children___id',
+  ParentChildrenChildrenChildren = 'parent___children___children___children',
+  ParentChildrenInternalContent = 'parent___children___internal___content',
+  ParentChildrenInternalContentDigest = 'parent___children___internal___contentDigest',
+  ParentChildrenInternalDescription = 'parent___children___internal___description',
+  ParentChildrenInternalFieldOwners = 'parent___children___internal___fieldOwners',
+  ParentChildrenInternalIgnoreType = 'parent___children___internal___ignoreType',
+  ParentChildrenInternalMediaType = 'parent___children___internal___mediaType',
+  ParentChildrenInternalOwner = 'parent___children___internal___owner',
+  ParentChildrenInternalType = 'parent___children___internal___type',
+  ParentInternalContent = 'parent___internal___content',
+  ParentInternalContentDigest = 'parent___internal___contentDigest',
+  ParentInternalDescription = 'parent___internal___description',
+  ParentInternalFieldOwners = 'parent___internal___fieldOwners',
+  ParentInternalIgnoreType = 'parent___internal___ignoreType',
+  ParentInternalMediaType = 'parent___internal___mediaType',
+  ParentInternalOwner = 'parent___internal___owner',
+  ParentInternalType = 'parent___internal___type',
+  Children = 'children',
+  ChildrenId = 'children___id',
+  ChildrenParentId = 'children___parent___id',
+  ChildrenParentParentId = 'children___parent___parent___id',
+  ChildrenParentParentChildren = 'children___parent___parent___children',
+  ChildrenParentChildren = 'children___parent___children',
+  ChildrenParentChildrenId = 'children___parent___children___id',
+  ChildrenParentChildrenChildren = 'children___parent___children___children',
+  ChildrenParentInternalContent = 'children___parent___internal___content',
+  ChildrenParentInternalContentDigest = 'children___parent___internal___contentDigest',
+  ChildrenParentInternalDescription = 'children___parent___internal___description',
+  ChildrenParentInternalFieldOwners = 'children___parent___internal___fieldOwners',
+  ChildrenParentInternalIgnoreType = 'children___parent___internal___ignoreType',
+  ChildrenParentInternalMediaType = 'children___parent___internal___mediaType',
+  ChildrenParentInternalOwner = 'children___parent___internal___owner',
+  ChildrenParentInternalType = 'children___parent___internal___type',
+  ChildrenChildren = 'children___children',
+  ChildrenChildrenId = 'children___children___id',
+  ChildrenChildrenParentId = 'children___children___parent___id',
+  ChildrenChildrenParentChildren = 'children___children___parent___children',
+  ChildrenChildrenChildren = 'children___children___children',
+  ChildrenChildrenChildrenId = 'children___children___children___id',
+  ChildrenChildrenChildrenChildren = 'children___children___children___children',
+  ChildrenChildrenInternalContent = 'children___children___internal___content',
+  ChildrenChildrenInternalContentDigest = 'children___children___internal___contentDigest',
+  ChildrenChildrenInternalDescription = 'children___children___internal___description',
+  ChildrenChildrenInternalFieldOwners = 'children___children___internal___fieldOwners',
+  ChildrenChildrenInternalIgnoreType = 'children___children___internal___ignoreType',
+  ChildrenChildrenInternalMediaType = 'children___children___internal___mediaType',
+  ChildrenChildrenInternalOwner = 'children___children___internal___owner',
+  ChildrenChildrenInternalType = 'children___children___internal___type',
+  ChildrenInternalContent = 'children___internal___content',
+  ChildrenInternalContentDigest = 'children___internal___contentDigest',
+  ChildrenInternalDescription = 'children___internal___description',
+  ChildrenInternalFieldOwners = 'children___internal___fieldOwners',
+  ChildrenInternalIgnoreType = 'children___internal___ignoreType',
+  ChildrenInternalMediaType = 'children___internal___mediaType',
+  ChildrenInternalOwner = 'children___internal___owner',
+  ChildrenInternalType = 'children___internal___type',
+  InternalContent = 'internal___content',
+  InternalContentDigest = 'internal___contentDigest',
+  InternalDescription = 'internal___description',
+  InternalFieldOwners = 'internal___fieldOwners',
+  InternalIgnoreType = 'internal___ignoreType',
+  InternalMediaType = 'internal___mediaType',
+  InternalOwner = 'internal___owner',
+  InternalType = 'internal___type',
+  Placeholder = 'placeholder',
+  CreatedById = 'created_by___id',
+  CreatedByFirstname = 'created_by___firstname',
+  CreatedByLastname = 'created_by___lastname',
+  UpdatedById = 'updated_by___id',
+  UpdatedByFirstname = 'updated_by___firstname',
+  UpdatedByLastname = 'updated_by___lastname',
+  CreatedAt = 'created_at',
+  UpdatedAt = 'updated_at',
+  StrapiId = 'strapiId'
+}
+
+export type StrapiUpfitFilterInput = {
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
+  placeholder?: Maybe<StringQueryOperatorInput>;
+  created_by?: Maybe<StrapiUpfitCreated_ByFilterInput>;
+  updated_by?: Maybe<StrapiUpfitUpdated_ByFilterInput>;
+  created_at?: Maybe<DateQueryOperatorInput>;
+  updated_at?: Maybe<DateQueryOperatorInput>;
+  strapiId?: Maybe<IntQueryOperatorInput>;
+};
+
+export type StrapiUpfitGroupConnection = {
+  __typename?: 'StrapiUpfitGroupConnection';
+  totalCount: Scalars['Int'];
+  edges: Array<StrapiUpfitEdge>;
+  nodes: Array<StrapiUpfit>;
+  pageInfo: PageInfo;
+  field: Scalars['String'];
+  fieldValue?: Maybe<Scalars['String']>;
+};
+
+export type StrapiUpfitSortInput = {
+  fields?: Maybe<Array<Maybe<StrapiUpfitFieldsEnum>>>;
+  order?: Maybe<Array<Maybe<SortOrderEnum>>>;
+};
+
+export type StrapiUpfitUpdated_By = {
+  __typename?: 'StrapiUpfitUpdated_by';
+  id?: Maybe<Scalars['Int']>;
+  firstname?: Maybe<Scalars['String']>;
+  lastname?: Maybe<Scalars['String']>;
+};
+
+export type StrapiUpfitUpdated_ByFilterInput = {
   id?: Maybe<IntQueryOperatorInput>;
   firstname?: Maybe<StringQueryOperatorInput>;
   lastname?: Maybe<StringQueryOperatorInput>;
@@ -4061,6 +5027,23 @@ export type FooterNavigationQuery = (
   )> }
 );
 
+export type MobileNavigationQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type MobileNavigationQuery = (
+  { __typename?: 'Query' }
+  & { strapiTrackSaleOnline?: Maybe<(
+    { __typename?: 'StrapiTrackSaleOnline' }
+    & { header?: Maybe<(
+      { __typename?: 'StrapiTrackSaleOnlineHeader' }
+      & { navigation?: Maybe<Array<Maybe<(
+        { __typename?: 'StrapiTrackSaleOnlineHeaderNavigation' }
+        & Pick<StrapiTrackSaleOnlineHeaderNavigation, 'id' | 'text' | 'href'>
+      )>>> }
+    )> }
+  )> }
+);
+
 export type NavigationQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -4151,6 +5134,25 @@ export type TermsOfUsePageQuery = (
   )> }
 );
 
+export type TruckBodiesPageQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type TruckBodiesPageQuery = (
+  { __typename?: 'Query' }
+  & { allStrapiBody: (
+    { __typename?: 'StrapiBodyConnection' }
+    & { nodes: Array<(
+      { __typename?: 'StrapiBody' }
+      & Pick<StrapiBody, 'model'>
+      & { id: StrapiBody['strapiId'] }
+      & { image?: Maybe<(
+        { __typename?: 'File' }
+        & Pick<File, 'publicURL'>
+      )> }
+    )> }
+  ) }
+);
+
 export type TruckMakesPageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -4167,6 +5169,36 @@ export type TruckMakesPageQuery = (
       )> }
     )> }
   ) }
+);
+
+export type TruckAccessoryPageQueryVariables = Exact<{
+  id: Scalars['Int'];
+}>;
+
+
+export type TruckAccessoryPageQuery = (
+  { __typename?: 'Query' }
+  & { strapiAccessory?: Maybe<(
+    { __typename?: 'StrapiAccessory' }
+    & Pick<StrapiAccessory, 'id' | 'placeholder'>
+  )> }
+);
+
+export type TruckBodyPageQueryVariables = Exact<{
+  id: Scalars['Int'];
+}>;
+
+
+export type TruckBodyPageQuery = (
+  { __typename?: 'Query' }
+  & { strapiBody?: Maybe<(
+    { __typename?: 'StrapiBody' }
+    & Pick<StrapiBody, 'id' | 'model' | 'company' | 'pdfLink' | 'type' | 'subframe' | 'floor' | 'threshold' | 'mounting' | 'rearDoor' | 'rearFrame' | 'roof' | 'skins' | 'sideWall' | 'frontEnd' | 'bumper' | 'interiorLighting' | 'exteriorLighting' | 'mudflaps' | 'panels' | 'cabAccessDoor' | 'cabLiner' | 'rearFinish' | 'liningSides' | 'grabHandles' | 'sidePanels' | 'sideFrame' | 'frontACDoor' | 'understructure' | 'sideCurtains'>
+    & { image?: Maybe<(
+      { __typename?: 'File' }
+      & Pick<File, 'publicURL'>
+    )> }
+  )> }
 );
 
 export type TruckMakePageQueryVariables = Exact<{
@@ -4203,6 +5235,22 @@ export type TruckModelPageQuery = (
     & { image?: Maybe<(
       { __typename?: 'File' }
       & Pick<File, 'publicURL'>
+    )>, make?: Maybe<(
+      { __typename?: 'StrapiTruckMake' }
+      & Pick<StrapiTruckMake, 'id' | 'name'>
     )> }
+  )> }
+);
+
+export type TruckUpfitPageQueryVariables = Exact<{
+  id: Scalars['Int'];
+}>;
+
+
+export type TruckUpfitPageQuery = (
+  { __typename?: 'Query' }
+  & { strapiUpfit?: Maybe<(
+    { __typename?: 'StrapiUpfit' }
+    & Pick<StrapiUpfit, 'id' | 'placeholder'>
   )> }
 );

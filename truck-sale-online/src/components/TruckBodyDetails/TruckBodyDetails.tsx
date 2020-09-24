@@ -1,12 +1,12 @@
 import React from 'react';
 import { css } from '@emotion/core';
 import Specification from '../Specification';
-import { useTruckModelData } from '@/contexts/TruckModelDataContext';
+import { useTruckBodyData } from '@/contexts/TruckBodyDataContext';
 
-const TruckModelDetails = () => {
-  const data = useTruckModelData();
+const TruckBodyDetails = () => {
+  const data = useTruckBodyData();
 
-  const truck = data.strapiTruck;
+  const body = data.strapiBody;
 
   return (
     <div
@@ -24,16 +24,13 @@ const TruckModelDetails = () => {
       >
         <h3
           css={(theme) => ({ color: theme.colors.primary })}
-        >{`${truck.modelYear} ${truck.make?.name} ${truck.model} Specification`}</h3>
+        >{`${body.company} ${body.model} Specification`}</h3>
       </div>
       <div>
-        <Specification
-          data={data.strapiTruck}
-          toExclude={['id', 'model', 'image', 'make', 'modelPdfCatalogueLink']}
-        />
+        <Specification data={data.strapiBody} toExclude={['image', 'id']} />
       </div>
     </div>
   );
 };
 
-export default TruckModelDetails;
+export default TruckBodyDetails;

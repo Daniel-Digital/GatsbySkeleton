@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "body_types",
+  "info": {
+    "name": "Body Type"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "image": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "bodies": {
+      "via": "type",
+      "collection": "body"
+    }
+  }
+}

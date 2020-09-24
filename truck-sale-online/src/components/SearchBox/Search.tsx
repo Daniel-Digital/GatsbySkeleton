@@ -1,10 +1,12 @@
 import React from 'react';
+import { navigate } from '@reach/router';
 import Autosuggest from 'react-autosuggest';
 import { AiOutlineSearch } from 'react-icons/ai';
 import styled from '@/styled';
 import { css } from '@emotion/core';
+import slugify from 'slugify';
 
-const Container = styled.div`
+const Container = styled.form`
   position: absolute;
   top: 210px;
   left: 50%;
@@ -92,7 +94,7 @@ class Search extends React.Component<Props, State> {
 
     // Finally, render it!
     return (
-      <Container>
+      <Container onSubmit={() => navigate(`/truck-makes/${slugify(value)}`)}>
         <div
           css={css`
             border-left: 1px inset rgb(118, 118, 118, 0.1);
@@ -124,7 +126,9 @@ class Search extends React.Component<Props, State> {
             position: absolute;
             top: 3px;
             right: -20px;
+            cursor: pointer;
           `}
+          onClick={() => navigate(`/truck-makes/${slugify(value)}`)}
         />
       </Container>
     );

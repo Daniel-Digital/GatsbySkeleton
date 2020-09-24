@@ -1,8 +1,7 @@
 import React from 'react';
 import styled from '@/styled';
-import Row from '../Row';
-import { useTruckModelData } from '@/contexts/TruckModelDataContext';
-import { NOT_IN_WEBSITE } from '../constants';
+import Row from './Row';
+import { css } from '@emotion/core';
 
 const Container = styled.div`
   table {
@@ -24,30 +23,40 @@ const Container = styled.div`
   }
 `;
 
-const toExclude = ['id', 'model', 'image'];
+type Props = {
+  toExclude: string[];
+  data: any;
+};
 
-const Specification = () => {
-  const data = useTruckModelData();
-
-  const rows = Object.keys(data.strapiTruck).filter(
-    (key) => !toExclude.includes(key),
-  );
+const Specification: React.FC<Props> = ({ toExclude, data }) => {
+  const rows = Object.keys(data).filter((key) => !toExclude.includes(key));
 
   return (
     <Container>
       <table>
         <tbody>
           {rows.map((row, index) =>
-            data.strapiTruck[row] && data.strapiTruck[row] != NOT_IN_WEBSITE ? (
-              <Row
-                prop={unCamelCase(row)}
-                value={data.strapiTruck[row]}
-                key={index}
-              />
+            data[row] && data[row] !== 'Not in website' ? (
+              <Row prop={unCamelCase(row)} value={data[row]} key={index} />
             ) : null,
           )}
         </tbody>
       </table>
+      <a
+        css={css`
+          display: block;
+          margin-top: 20px;
+          text-decoration: underline;
+          text-align: right;
+          transition: color 0.2;
+          :hover {
+            color: #999;
+          }
+        `}
+        href={data.modelPdfCatalogueLink || data.pdfLink}
+      >
+        PDF catalogue link
+      </a>
     </Container>
   );
 };
